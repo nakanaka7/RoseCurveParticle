@@ -1,5 +1,18 @@
 package tokyo.nakanaka.roseCurve;
 
-public class Main {
+import java.util.ArrayList;
+import java.util.List;
 
+import tokyo.nakanaka.commandSender.CommandSender;
+
+public class Main {
+	
+	public void onRcpCommand(CommandSender cmdSender, String label, String[] args) {
+		
+	}
+	
+	public List<String> onRcpTabComplete(CommandSender cmdSender, String label, String[] args) {
+		return new ArrayList<>();
+	}
+	
 }
