@@ -1,0 +1,6 @@
+main: tokyo.nakanaka.roseCurve.bukkit.RoseCurvePlugin
+name: RoseCurve
+version: 1.0.0
+commands:
+  'rcp':
+api-version: 1.16
