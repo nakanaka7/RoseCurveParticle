@@ -1,16 +1,15 @@
 package tokyo.nakanaka.roseCurve.bukkit;
 
-import java.util.List;
-
 import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import tokyo.nakanaka.bukkit.BukkitFunctions;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurve.Main;
 
+import java.util.List;
+
 public class RoseCurvePlugin extends JavaPlugin {
-	private Main main;
+	private Main main = new Main();
 	
 	@Override
 	public boolean onCommand(org.bukkit.command.CommandSender cmdSender0, Command command, String label, String[] args) {
