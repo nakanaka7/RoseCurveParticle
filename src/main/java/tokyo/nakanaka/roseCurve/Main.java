@@ -8,7 +8,7 @@ import tokyo.nakanaka.commandSender.CommandSender;
 public class Main {
 	
 	public void onRcpCommand(CommandSender cmdSender, String label, String[] args) {
-		
+		System.out.println("hello");
 	}
 	
 	public List<String> onRcpTabComplete(CommandSender cmdSender, String label, String[] args) {
