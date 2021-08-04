@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurve.commandHandler;
+package tokyo.nakanaka.roseCurveParticle.commandHandler;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -7,8 +7,8 @@ import java.util.List;
 import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.roseCurve.commandHelp.CommandHelp;
-import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
+import tokyo.nakanaka.roseCurveParticle.commandHelp.CommandHelp;
+import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
 /**
  * Handles "/rcp help" command
  */

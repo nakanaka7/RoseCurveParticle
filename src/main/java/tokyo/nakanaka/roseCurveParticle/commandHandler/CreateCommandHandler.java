@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurve.commandHandler;
+package tokyo.nakanaka.roseCurveParticle.commandHandler;
 
 import java.util.List;
 import java.util.Map;
@@ -6,8 +6,8 @@ import java.util.Map;
 import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
 import tokyo.nakanaka.roseCurveParticle.Task;
+import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
 /**
  * Handles "/rcp create" command.
  */
