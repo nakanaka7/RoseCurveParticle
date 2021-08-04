@@ -19,7 +19,7 @@ public class DelCommandHandler implements CommandHandler {
 
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
-		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.DEL_HELP;
+		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.DEL_HELP.getUsage();
 		if(args.length != 1) {
 			cmdSender.print(usageMsg);
 			return;
