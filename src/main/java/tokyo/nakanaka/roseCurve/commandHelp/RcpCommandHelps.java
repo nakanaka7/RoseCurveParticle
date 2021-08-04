@@ -1,6 +1,9 @@
 package tokyo.nakanaka.roseCurve.commandHelp;
 
 public class RcpCommandHelps {
+	/**
+	 * Constant class for CommandHelp
+	 */
 	private RcpCommandHelps() {
 	}
 	public static CommandHelp HELP_HELP = new HelpCommandHelp();
