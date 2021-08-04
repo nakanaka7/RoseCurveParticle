@@ -8,6 +8,9 @@ import tokyo.nakanaka.roseCurve.Main;
 
 import java.util.List;
 
+/**
+ * An entry point of this plugin
+ */
 public class RoseCurvePlugin extends JavaPlugin {
 	private Main main = new Main();
 	
