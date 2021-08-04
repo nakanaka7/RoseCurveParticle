@@ -9,10 +9,14 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurve.Task;
 import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
-
+/**
+ * Handles "/rcp del" command.
+ */
 public class DelCommandHandler implements CommandHandler {
 	private Map<String, Task> taskMap;
-	
+	/**
+	 * @param taskMap a map which stores tasks
+	 */
 	public DelCommandHandler(Map<String, Task> taskMap) {
 		this.taskMap = taskMap;
 	}
