@@ -14,14 +14,14 @@ public class RoseCurvePlugin extends JavaPlugin {
 	@Override
 	public boolean onCommand(org.bukkit.command.CommandSender cmdSender0, Command command, String label, String[] args) {
 		CommandSender cmdSender = BukkitFunctions.convertCommandSender(cmdSender0);
-		this.main.onRcpCommand(cmdSender, label, args);
+		this.main.onRcpCommand(cmdSender, args);
 		return true;
 	}
 	
 	@Override
 	public List<String> onTabComplete(org.bukkit.command.CommandSender cmdSender0, Command command, String alias, String[] args){
 		CommandSender cmdSender = BukkitFunctions.convertCommandSender(cmdSender0);
-		return this.main.onRcpTabComplete(cmdSender, alias, args);
+		return this.main.onRcpTabComplete(cmdSender, args);
 	}
 	
 }
