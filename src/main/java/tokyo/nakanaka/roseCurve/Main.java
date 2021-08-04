@@ -12,10 +12,14 @@ import tokyo.nakanaka.roseCurve.commandHandler.CreateCommandHandler;
 import tokyo.nakanaka.roseCurve.commandHandler.DelCommandHandler;
 import tokyo.nakanaka.roseCurve.commandHandler.HelpCommandHandler;
 import tokyo.nakanaka.roseCurve.commandHandler.ListCommandHandler;
-
+/**
+ * A hub class for this project, which may be used by platform(s)' entry point. 
+ */
 public class Main {
 	private Map<String, CommandHandler> cmdHandlerMap;
-	
+	/**
+	 * Constructs a main.
+	 */
 	public Main() {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
@@ -24,7 +28,11 @@ public class Main {
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
 	}
-	
+	/**
+	 * Run a /rcp command
+	 * @param cmdSender command sender who run the command
+	 * @param args command arguments of the command
+	 */
 	public void onRcpCommand(CommandSender cmdSender, String[] args) {
 		if(args.length == 0) {
 			return;
@@ -37,7 +45,12 @@ public class Main {
 			cmdHandler.onCommand(cmdSender, subArgs);
 		}
 	}
-	
+	/**
+	 * Returns a tab complete list for a /rcp command 
+	 * @param cmdSender command sender who run the command
+	 * @param args command arguments of the command
+	 * @return a tab complete list for a /rcp command
+	 */
 	public List<String> onRcpTabComplete(CommandSender cmdSender, String[] args) {
 		if(args.length == 0) {
 			return new ArrayList<>();
