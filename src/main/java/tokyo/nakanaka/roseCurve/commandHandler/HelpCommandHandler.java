@@ -9,10 +9,14 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurve.commandHelp.CommandHelp;
 import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
-
+/**
+ * Handles "/rcp help" command
+ */
 public class HelpCommandHandler implements CommandHandler {
 	private LinkedHashMap<String, CommandHelp> cmdHelpMap;
-	
+	/**
+	 * Constructs a handler
+	 */
 	public HelpCommandHandler() {
 		this.cmdHelpMap = new LinkedHashMap<>();
 		cmdHelpMap.put("help", RcpCommandHelps.HELP_HELP);

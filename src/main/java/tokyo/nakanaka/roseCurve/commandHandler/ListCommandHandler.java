@@ -9,10 +9,14 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurve.Task;
 import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
-
+/**
+ *Handles "/rcp list" command
+ */
 public class ListCommandHandler implements CommandHandler {
 	private Map<String, Task> taskMap;
-	
+	/**
+	 * @param taskMap a map which stores tasks
+	 */
 	public ListCommandHandler(Map<String, Task> taskMap) {
 		this.taskMap = taskMap;
 	}
