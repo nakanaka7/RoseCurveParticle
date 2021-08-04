@@ -6,16 +6,15 @@ import java.util.List;
 import tokyo.nakanaka.logger.LogColor;
 
 class CreateCommandHelp implements CommandHelp {
-	private String usage = "/rcp create <taskName>";
 	
 	@Override
 	public String getUsage() {
-		return this.usage;
+		return "/rcp create <taskName>";
 	}
 
 	@Override
 	public String toSingleLine() {
-		return LogColor.LIGHT_PURPLE + this.usage + ": " + LogColor.RESET + "Create new task";
+		return LogColor.LIGHT_PURPLE + "/rcp create <taskName>" + ": " + LogColor.RESET + "Create new task";
 	}
 
 	@Override
