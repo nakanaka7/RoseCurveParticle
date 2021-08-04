@@ -18,7 +18,7 @@ public class CreateCommandHandler implements CommandHandler {
 
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
-		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.CREATE_HELP;
+		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.CREATE_HELP.getUsage();
 		Task task = null;
 		if(args.length == 0) {
 			cmdSender.print(usageMsg);
