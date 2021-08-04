@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurve;
+package tokyo.nakanaka.roseCurveParticle;
 
 import java.util.ArrayList;
 import java.util.HashMap;

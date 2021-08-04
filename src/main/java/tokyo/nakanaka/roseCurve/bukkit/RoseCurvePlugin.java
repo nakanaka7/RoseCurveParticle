@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
 import tokyo.nakanaka.bukkit.BukkitFunctions;
 import tokyo.nakanaka.commandSender.CommandSender;
-import tokyo.nakanaka.roseCurve.Main;
+import tokyo.nakanaka.roseCurveParticle.Main;
 
 import java.util.List;
 
