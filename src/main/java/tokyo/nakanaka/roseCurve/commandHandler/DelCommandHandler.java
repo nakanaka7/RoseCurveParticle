@@ -8,6 +8,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurve.Task;
+import tokyo.nakanaka.roseCurve.commandHelp.RcpCommandHelps;
 
 public class DelCommandHandler implements CommandHandler {
 	private Map<String, Task> taskMap;
@@ -18,7 +19,7 @@ public class DelCommandHandler implements CommandHandler {
 
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
-		String usageMsg = LogColor.RED + "Usage: /rcp del <taskName>";
+		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.DEL_HELP;
 		if(args.length != 1) {
 			cmdSender.print(usageMsg);
 			return;
@@ -29,6 +30,7 @@ public class DelCommandHandler implements CommandHandler {
 			return;
 		}
 		this.taskMap.remove(args[0]);
+		cmdSender.print(LogColor.LIGHT_PURPLE + "Delete the task \"" + args[0] + "\"");
 	}
 
 	@Override
