@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurve.bukkit;
+package tokyo.nakanaka.roseCurveParticle.bukkit;
 
 import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * An entry point of this plugin
  */
-public class RoseCurvePlugin extends JavaPlugin {
+public class RoseCurveParticlePlugin extends JavaPlugin {
 	private Main main = new Main();
 	
 	@Override

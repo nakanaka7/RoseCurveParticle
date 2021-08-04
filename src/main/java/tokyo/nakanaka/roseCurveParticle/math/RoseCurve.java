@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurve.math;
+package tokyo.nakanaka.roseCurveParticle.math;
 
 public class RoseCurve {
 	private double a;
