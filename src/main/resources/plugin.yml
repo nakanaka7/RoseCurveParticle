@@ -1,4 +1,4 @@
-main: tokyo.nakanaka.roseCurve.bukkit.RoseCurvePlugin
+main: tokyo.nakanaka.roseCurveParticle.bukkit.RoseCurveParticlePlugin
 name: RoseCurve
 version: 1.0.0
 commands:
