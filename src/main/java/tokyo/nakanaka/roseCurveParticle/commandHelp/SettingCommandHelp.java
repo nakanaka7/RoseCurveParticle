@@ -34,6 +34,7 @@ class SettingCommandHelp implements CommandHelp {
 			+ LogColor.LIGHT_PURPLE + "\"n\" " + LogColor.RESET + "factor of the rose curve");
 		line.add("    " + LogColor.LIGHT_PURPLE + "<d> <positive int>: " + LogColor.RESET + "Change the "
 			+ LogColor.LIGHT_PURPLE + "\"d\" " + LogColor.RESET + "factor of the rose curve");
+		line.add("    " + LogColor.LIGHT_PURPLE + "<center> <x> <y> <z>: " + LogColor.RESET + "Change the rose curve center coordinates");
 		return line;
 	}
 
