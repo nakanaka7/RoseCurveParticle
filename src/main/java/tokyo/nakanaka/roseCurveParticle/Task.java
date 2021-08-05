@@ -72,9 +72,12 @@ public class Task {
 	}
 	/**
 	 * Get A factor of the rose curve
-	 * @return A factor of the rose curve
+	 * @return A factor of the rose curve, or null if the factor is not set
 	 */
-	public double getAFactor() {
+	public Double getAFactor() {
+		if(this.curve == null) {
+			return null;
+		}
 		return this.curve.getAFactor();
 	}
 	/**
@@ -88,9 +91,12 @@ public class Task {
 	}
 	/**
 	 * Get N factor of the rose curve
-	 * @return N factor of the rose curve
+	 * @return N factor of the rose curve, or null if the factor is not set
 	 */
-	public int getNFactor() {
+	public Integer getNFactor() {
+		if(this.curve == null) {
+			return null;
+		}
 		return this.curve.getNFactor();
 	}
 	/**
@@ -104,10 +110,13 @@ public class Task {
 		this.curve = new RoseCurve(a, n, d);
 	}
 	/**
-	 * Get D factor of the rose curve
+	 * Get D factor of the rose curve, or null if the factor is not set
 	 * @return D factor of the rose curve
 	 */
-	public int getDFactor() {
+	public Integer getDFactor() {
+		if(this.curve == null) {
+			return null;
+		}
 		return this.curve.getDFactor();
 	}
 	/**
