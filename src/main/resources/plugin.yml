@@ -1,6 +1,6 @@
 main: tokyo.nakanaka.roseCurveParticle.bukkit.RoseCurveParticlePlugin
 name: RoseCurveParticle
-version: 1.0.0
+version: 0.1.1
 commands:
   'rcp':
 api-version: 1.16
