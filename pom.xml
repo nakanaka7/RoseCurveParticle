@@ -6,8 +6,8 @@
   </properties>
   <modelVersion>4.0.0</modelVersion>
   <groupId>tokyo.nakanaka</groupId>
-  <artifactId>RoseCurve</artifactId>
-  <version>1.0.0</version>
+  <artifactId>RoseCurveParticle</artifactId>
+  <version>0.0.1</version>
   <repositories>
     <repository>
       <id>local-maven-repo</id>
@@ -25,7 +25,7 @@
     <dependency>
       <groupId>tokyo.nakanaka</groupId>
       <artifactId>NakanakaCommons</artifactId>
-      <version>0.1.0</version>
+      <version>1.0.0</version>
       <type>jar</type>
     </dependency>
   </dependencies>
