@@ -12,7 +12,9 @@ public class Task {
 	private World world;
 	private Vector3D center;
 	private Particle particle;
-	private RoseCurve curve;
+	private Double a;
+	private Integer n;
+	private Integer d;
 	private boolean activating;
 	/**
 	 * Construct a task which does not have any information
@@ -75,59 +77,50 @@ public class Task {
 	 * @return A factor of the rose curve, or null if the factor is not set
 	 */
 	public Double getAFactor() {
-		if(this.curve == null) {
-			return null;
-		}
-		return this.curve.getAFactor();
+		return this.a;
 	}
 	/**
 	 * Set A factor of the rose curve
 	 * @param a a factor of the rose curve
 	 */
 	public void setAFactor(double a) {
-		int n = this.curve.getNFactor();
-		int d = this.curve.getDFactor();
-		this.curve = new RoseCurve(a, n, d);
+		this.a = a;
 	}
 	/**
 	 * Get N factor of the rose curve
 	 * @return N factor of the rose curve, or null if the factor is not set
 	 */
 	public Integer getNFactor() {
-		if(this.curve == null) {
-			return null;
-		}
-		return this.curve.getNFactor();
+		return this.n;
 	}
 	/**
 	 * Set N factor of the rose curve
 	 * @param n N factor of the rose curve
-	 * @throws if n is negative integer
+	 * @throws IllegalArgumentException if n is 0 or negative integer
 	 */
 	public void setNFactor(int  n) {
-		double a = this.curve.getAFactor();
-		int d = this.curve.getDFactor();
-		this.curve = new RoseCurve(a, n, d);
+		if(n <= 0) {
+			throw new IllegalArgumentException();
+		}
+		this.n = n;
 	}
 	/**
 	 * Get D factor of the rose curve, or null if the factor is not set
 	 * @return D factor of the rose curve
 	 */
 	public Integer getDFactor() {
-		if(this.curve == null) {
-			return null;
-		}
-		return this.curve.getDFactor();
+		return this.d;
 	}
 	/**
 	 * Set D factor of the rose curve
 	 * @param d D factor of the rose curve
-	 * @throws if n is negative integer
+	 * @throws IllegalArgumentException if d is negative integer or negative integer
 	 */
 	public void setDFactor(int  d) {
-		double a = this.curve.getAFactor();
-		int n = this.curve.getNFactor();
-		this.curve = new RoseCurve(a, n, d);
+		if(d <= 0) {
+			throw new IllegalArgumentException();
+		}
+		this.d = d;
 	}
 	/**
 	 * Start the task
