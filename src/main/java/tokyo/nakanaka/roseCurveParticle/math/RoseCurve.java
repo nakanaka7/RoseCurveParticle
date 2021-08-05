@@ -9,10 +9,14 @@ public class RoseCurve {
 	/**
 	 * Construct a rose curve, r = a * sin((n/d) * θ)
 	 * @param a a factor
-	 * @param n n factor
-	 * @param d d factor
+	 * @param n n factor, which must be positive integer
+	 * @param d d factor, which must be positive integer
+	 * @throws if n or d is negative integer
 	 */
 	public RoseCurve(double a, int n, int d) {
+		if(n <= 0 || d <= 0) {
+			throw new IllegalArgumentException();
+		}
 		this.a = a;
 		this.n = n;
 		this.d = d;
