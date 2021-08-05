@@ -5,7 +5,7 @@ import java.util.List;
 
 import tokyo.nakanaka.logger.LogColor;
 
-public class SettingCommandHelp implements CommandHelp {
+class SettingCommandHelp implements CommandHelp {
 
 	@Override
 	public String getUsage() {
