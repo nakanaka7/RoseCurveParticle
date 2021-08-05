@@ -12,6 +12,7 @@ import tokyo.nakanaka.roseCurveParticle.commandHandler.CreateCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.DelCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.HelpCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.ListCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.SettingCommandHandler;
 /**
  * A hub class for this project, which may be used by platform(s)' entry point. 
  */
@@ -27,6 +28,7 @@ public class Main {
 		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
+		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap));
 	}
 	/**
 	 * Run a /rcp command
