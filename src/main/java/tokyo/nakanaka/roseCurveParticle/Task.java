@@ -1,5 +1,6 @@
 package tokyo.nakanaka.roseCurveParticle;
 
+import tokyo.nakanaka.Axis;
 import tokyo.nakanaka.World;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
@@ -11,6 +12,7 @@ import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 public class Task {
 	private World world;
 	private Vector3D center;
+	private Axis axis;
 	private Particle particle;
 	private Double a;
 	private Integer n;
@@ -57,6 +59,20 @@ public class Task {
 	 */
 	public void setCenter(Vector3D center) {
 		this.center = center;
+	}
+	/**
+	 * Get the axis of the rose curve
+	 * @return the axis of the rose curve
+	 */
+	public Axis getAxis() {
+		return axis;
+	}
+	/**
+	 * Set the axis of the rose curve
+	 * @param axis the axis of the rose curve
+	 */
+	public void setAxis(Axis axis) {
+		this.axis = axis;
 	}
 	/**
 	 * Get particle of the task
