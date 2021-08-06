@@ -37,14 +37,14 @@ public class SettingCommandHandler implements CommandHandler {
 			cmdSender.print(noTaskMsg);
 			return;
 		}
+		CommandHandlerFunctions.createSettingLines(args[0], task).stream()
+			.forEach(s -> cmdSender.print(s));
 		if(args.length >= 2) {
 			SettingSubCommandHandler subCmdHandler = this.subCmdMap.get(args[1]);
 			if(subCmdHandler != null) {
 				String[] subargs = new String[args.length - 2];
 				System.arraycopy(args, 2, subargs, 0, args.length - 2);
 				subCmdHandler.onCommand(cmdSender, subargs, task);
-				CommandHandlerFunctions.createSettingLines(args[0], task).stream()
-					.forEach(s -> cmdSender.print(s));
 			}else {
 				cmdSender.print(LogColor.RED + "unknown subcommand");
 				return;

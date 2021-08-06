@@ -5,6 +5,7 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
 
 /**
  * Handles "a" sub command of "/rcp setting" command
@@ -24,6 +25,8 @@ public class ACommandHandler implements SettingSubCommandHandler {
 			return;
 		}
 		task.setAFactor(value);
+		CommandHandlerFunctions.createSettingLines("", task).stream()
+			.forEach(s -> cmdSender.print(s));
 	}
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
