@@ -25,7 +25,7 @@ public class ACommandHandler implements SettingSubCommandHandler {
 			return;
 		}
 		task.setAFactor(value);
-		CommandHandlerFunctions.createSettingLines("", task).stream()
+		CommandHandlerFunctions.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
 	@Override
