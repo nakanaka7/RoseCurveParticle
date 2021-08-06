@@ -12,7 +12,7 @@ import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 public class Task {
 	private World world;
 	private Vector3D center;
-	private Axis axis;
+	private Axis axis = Axis.Y;
 	private Particle particle;
 	private Double a;
 	private Integer n;
