@@ -2,10 +2,8 @@ package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub;
 
 import java.util.List;
 
-import tokyo.nakanaka.BlockPosition;
 import tokyo.nakanaka.EntityPosition;
 import tokyo.nakanaka.Player;
-import tokyo.nakanaka.commandSender.BlockCommandSender;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.math.Vector3D;
@@ -54,15 +52,6 @@ public class CenterCommandHandler implements SettingSubCommandHandler {
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
 		if(cmdSender instanceof Player player) {
 			EntityPosition pos = player.getEntityPosition();
-			if(args.length == 1) {
-				return List.of(String.valueOf(pos.x()));
-			}else if(args.length == 2) {
-				return List.of(String.valueOf(pos.y()));
-			}else if(args.length == 3) {
-				return List.of(String.valueOf(pos.z()));
-			}
-		}else if(cmdSender instanceof BlockCommandSender blockCmdSender) {
-			BlockPosition pos = blockCmdSender.getBlockPosition();
 			if(args.length == 1) {
 				return List.of(String.valueOf(pos.x()));
 			}else if(args.length == 2) {
