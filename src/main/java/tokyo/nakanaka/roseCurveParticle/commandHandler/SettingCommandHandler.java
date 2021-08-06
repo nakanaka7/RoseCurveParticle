@@ -43,27 +43,13 @@ public class SettingCommandHandler implements CommandHandler {
 				String[] subargs = new String[args.length - 2];
 				System.arraycopy(args, 2, subargs, 0, args.length - 2);
 				subCmdHandler.onCommand(cmdSender, subargs, task);
-				createSettingLines(args[0], task).stream()
+				CommandHandlerFunctions.createSettingLines(args[0], task).stream()
 					.forEach(s -> cmdSender.print(s));
 			}else {
 				cmdSender.print(LogColor.RED + "unknown subcommand");
 				return;
 			}
 		}
-	}
-	
-	private static List<String> createSettingLines(String taskName, Task task){
-		List<String> lines = new ArrayList<>();
-		lines.add("--- [" + LogColor.LIGHT_PURPLE + "Settings of " + LogColor.RESET + taskName + "] ---------------------");
-		lines.add(LogColor.LIGHT_PURPLE + "  eq. " + LogColor.RESET + "r = a * sin((n/d) * θ)");
-		lines.add(LogColor.LIGHT_PURPLE + "a: " + LogColor.RESET + task.getAFactor());
-		lines.add(LogColor.LIGHT_PURPLE + "n: " + LogColor.RESET + task.getNFactor());
-		lines.add(LogColor.LIGHT_PURPLE + "d: " + LogColor.RESET + task.getDFactor());
-		lines.add("---------------------------------------");
-		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + task.getWorld());
-		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
-		lines.add(LogColor.LIGHT_PURPLE + "Axis: ");
-		return lines;
 	}
 	
 	@Override
