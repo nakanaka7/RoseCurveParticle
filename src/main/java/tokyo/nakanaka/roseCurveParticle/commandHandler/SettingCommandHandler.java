@@ -1,6 +1,5 @@
 package tokyo.nakanaka.roseCurveParticle.commandHandler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +11,7 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ACommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.NCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.SettingSubCommandHandler;
 
 public class SettingCommandHandler implements CommandHandler {
@@ -22,6 +22,7 @@ public class SettingCommandHandler implements CommandHandler {
 	 */
 	public SettingCommandHandler(Map<String, Task> taskMap) {
 		this.subCmdMap.put("a", new ACommandHandler());
+		this.subCmdMap.put("n", new NCommandHandler());
 		this.taskMap = taskMap;
 	}
 	@Override
@@ -69,9 +70,7 @@ public class SettingCommandHandler implements CommandHandler {
 			System.arraycopy(args, 2, subargs, 0, args.length - 2);
 			return subHandler.onTabComplete(cmdSender, subargs);
 		}
-		if(args[1].equals("n") && args.length == 3) {
-			return List.of("1", "2", "3", "4", "5", "6", "7", "8", "9");
-		}else if(args[1].equals("d") && args.length == 3 ) {
+		if(args[1].equals("d") && args.length == 3 ) {
 			return List.of("1", "2", "3", "4", "5", "6", "7", "8", "9");
 		}else if(args[1].equals("center")) {
 			if(cmdSender instanceof BlockPositionalCommandSender posCmdSender) {
