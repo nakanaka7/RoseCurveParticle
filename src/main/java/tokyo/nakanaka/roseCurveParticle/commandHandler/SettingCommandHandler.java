@@ -13,6 +13,7 @@ import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ACommandHandle
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.AxisCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.CenterCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.DCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.KCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.NCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.SettingSubCommandHandler;
 
@@ -26,7 +27,7 @@ public class SettingCommandHandler implements CommandHandler {
 		this.subCmdMap.put("a", new ACommandHandler());
 		this.subCmdMap.put("n", new NCommandHandler());
 		this.subCmdMap.put("d", new DCommandHandler());
-		this.subCmdMap.put("k", new DCommandHandler());
+		this.subCmdMap.put("k", new KCommandHandler());
 		this.subCmdMap.put("center", new CenterCommandHandler());
 		this.subCmdMap.put("axis", new AxisCommandHandler());
 		this.taskMap = taskMap;
