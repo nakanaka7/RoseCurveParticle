@@ -14,7 +14,7 @@ public class ACommandHandler implements SettingSubCommandHandler {
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task) {
 		if(args.length != 1) {
-			cmdSender.print(LogColor.RED + "Usage: /rcp setting a <double>");
+			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> a <double>");
 			return;
 		}
 		double value;
