@@ -4,7 +4,6 @@ import tokyo.nakanaka.Axis;
 import tokyo.nakanaka.World;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
 /**
  * Represents a task which draws a particle rose line in a world
@@ -17,7 +16,7 @@ public class Task {
 	private Double a;
 	private Integer n;
 	private Integer d;
-	private Integer k;
+	private Double k;
 	private boolean activating;
 	/**
 	 * Construct a task which does not have any information
@@ -143,14 +142,14 @@ public class Task {
 	 * Get the angular velocity of the rose curve
 	 * @return the angular velocity of the rose curve
 	 */
-	public Integer getAngularVelocity() {
+	public Double getAngularVelocity() {
 		return k;
 	}
 	/**
 	 * Set the angular velocity of the rose curve
 	 * @param k the angular velocity of the rose curve
 	 */
-	public void setAngularVelocity(Integer k) {
+	public void setAngularVelocity(double k) {
 		this.k = k;
 	}
 	/**
