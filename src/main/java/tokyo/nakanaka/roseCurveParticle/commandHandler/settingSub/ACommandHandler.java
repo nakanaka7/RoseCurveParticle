@@ -8,7 +8,7 @@ import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
 
 /**
- * Handles "a" sub command of "/rcp setting" command
+ * Handles "a" sub command of "/rcp setting &lt;taskName&gt;" command
  */
 public class ACommandHandler implements SettingSubCommandHandler {
 	@Override
