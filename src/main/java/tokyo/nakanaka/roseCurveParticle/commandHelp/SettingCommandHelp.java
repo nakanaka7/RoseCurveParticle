@@ -28,15 +28,15 @@ class SettingCommandHelp implements CommandHelp {
 		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "task name");
 		line.add("  " + LogColor.LIGHT_PURPLE + "[subcommand]: " + LogColor.RESET + "");
 		line.add("    " + LogColor.LIGHT_PURPLE + "<empty>: " + LogColor.RESET + "Nothing changes, just print the current settings");
-		line.add("    " + LogColor.LIGHT_PURPLE + "<a> <double>: " + LogColor.RESET + "Change the " 
+		line.add("    " + LogColor.LIGHT_PURPLE + "a <double>: " + LogColor.RESET + "Change the " 
 			+ LogColor.LIGHT_PURPLE + "\"a\" " + LogColor.RESET + "factor of the rose curve");
-		line.add("    " + LogColor.LIGHT_PURPLE + "<n> <positive int>: " + LogColor.RESET + "Change the " 
+		line.add("    " + LogColor.LIGHT_PURPLE + "n <positive int>: " + LogColor.RESET + "Change the " 
 			+ LogColor.LIGHT_PURPLE + "\"n\" " + LogColor.RESET + "factor of the rose curve");
-		line.add("    " + LogColor.LIGHT_PURPLE + "<d> <positive int>: " + LogColor.RESET + "Change the "
+		line.add("    " + LogColor.LIGHT_PURPLE + "d <positive int>: " + LogColor.RESET + "Change the "
 			+ LogColor.LIGHT_PURPLE + "\"d\" " + LogColor.RESET + "factor of the rose curve");
-		line.add("    " + LogColor.LIGHT_PURPLE + "<k> <double>: " + LogColor.RESET + "Change the angular velocity "
+		line.add("    " + LogColor.LIGHT_PURPLE + "k <double>: " + LogColor.RESET + "Change the angular velocity "
 				+ LogColor.LIGHT_PURPLE + "\"k\" " + LogColor.RESET + "[degree/tick] of the rose curve");
-		line.add("    " + LogColor.LIGHT_PURPLE + "<center> <x> <y> <z>: " + LogColor.RESET + "Change the rose curve center coordinates");
+		line.add("    " + LogColor.LIGHT_PURPLE + "center <x> <y> <z>: " + LogColor.RESET + "Change the rose curve center coordinates");
 		return line;
 	}
 
