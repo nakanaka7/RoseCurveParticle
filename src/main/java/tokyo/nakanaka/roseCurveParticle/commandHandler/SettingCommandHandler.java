@@ -6,12 +6,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import tokyo.nakanaka.CommandHandler;
-import tokyo.nakanaka.commandSender.BlockPositionalCommandSender;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ACommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.AxisCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.CenterCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.DCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.NCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.SettingSubCommandHandler;
@@ -26,6 +26,7 @@ public class SettingCommandHandler implements CommandHandler {
 		this.subCmdMap.put("a", new ACommandHandler());
 		this.subCmdMap.put("n", new NCommandHandler());
 		this.subCmdMap.put("d", new DCommandHandler());
+		this.subCmdMap.put("center", new CenterCommandHandler());
 		this.subCmdMap.put("axis", new AxisCommandHandler());
 		this.taskMap = taskMap;
 	}
@@ -74,25 +75,6 @@ public class SettingCommandHandler implements CommandHandler {
 			String[] subargs = new String[args.length - 2];
 			System.arraycopy(args, 2, subargs, 0, args.length - 2);
 			return subHandler.onTabComplete(cmdSender, subargs);
-		}
-		if(args[1].equals("center")) {
-			if(cmdSender instanceof BlockPositionalCommandSender posCmdSender) {
-				if(args.length == 3) {
-					return List.of("~");
-				}else if(args.length == 4) {
-					return List.of("~");
-				}else if(args.length == 5) {
-					return List.of("~");
-				}
-			}else {
-				if(args.length == 3) {
-					return List.of("<x>");
-				}else if(args.length == 4) {
-					return List.of("<y>");
-				}else if(args.length == 5) {
-					return List.of("<z>");
-				}
-			}
 		}
 		return List.of();
 	}
