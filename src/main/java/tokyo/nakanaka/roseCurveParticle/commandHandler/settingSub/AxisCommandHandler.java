@@ -5,6 +5,9 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurveParticle.Task;
 
+/**
+ * Handles "axis" sub command of "/rcp setting &lt;taskName&gt;" command
+ */
 public class AxisCommandHandler implements SettingSubCommandHandler {
 
 	@Override
