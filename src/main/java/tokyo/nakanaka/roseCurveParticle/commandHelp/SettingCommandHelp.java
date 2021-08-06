@@ -36,7 +36,10 @@ class SettingCommandHelp implements CommandHelp {
 			+ LogColor.LIGHT_PURPLE + "\"d\" " + LogColor.RESET + "factor of the rose curve");
 		line.add("    " + LogColor.LIGHT_PURPLE + "k <double>: " + LogColor.RESET + "Change the angular velocity "
 				+ LogColor.LIGHT_PURPLE + "\"k\" " + LogColor.RESET + "[degree/tick] of the rose curve");
+		line.add("    " + LogColor.LIGHT_PURPLE + "particle <id> [extra]...: " + LogColor.RESET + "Specify the particle");
+		line.add("    " + LogColor.LIGHT_PURPLE + "world <worldName>: " + LogColor.RESET + "Change the world");
 		line.add("    " + LogColor.LIGHT_PURPLE + "center <x> <y> <z>: " + LogColor.RESET + "Change the rose curve center coordinates");
+		line.add("    " + LogColor.LIGHT_PURPLE + "axis x|y|z: " + LogColor.RESET + "Change the axis");
 		return line;
 	}
 
