@@ -27,7 +27,7 @@ public class CommandHandlerFunctions {
 		lines.add("---------------------------------------");
 		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + task.getWorld());
 		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
-		lines.add(LogColor.LIGHT_PURPLE + "Axis: ");
+		lines.add(LogColor.LIGHT_PURPLE + "Axis: " + LogColor.RESET + task.getAxis().toString().toLowerCase());
 		return lines;
 	}
 }
