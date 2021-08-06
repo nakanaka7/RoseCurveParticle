@@ -26,6 +26,7 @@ public class SettingCommandHandler implements CommandHandler {
 		this.subCmdMap.put("a", new ACommandHandler());
 		this.subCmdMap.put("n", new NCommandHandler());
 		this.subCmdMap.put("d", new DCommandHandler());
+		this.subCmdMap.put("k", new DCommandHandler());
 		this.subCmdMap.put("center", new CenterCommandHandler());
 		this.subCmdMap.put("axis", new AxisCommandHandler());
 		this.taskMap = taskMap;
