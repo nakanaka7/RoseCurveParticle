@@ -24,7 +24,7 @@ public class KCommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to double");
 			return;
 		}
-		task.setAFactor(value);
+		task.setAngularVelocity(value);
 		CommandHandlerFunctions.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
