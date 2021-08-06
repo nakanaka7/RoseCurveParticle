@@ -17,6 +17,7 @@ public class Task {
 	private Double a;
 	private Integer n;
 	private Integer d;
+	private Integer k;
 	private boolean activating;
 	/**
 	 * Construct a task which does not have any information
@@ -137,6 +138,20 @@ public class Task {
 			throw new IllegalArgumentException();
 		}
 		this.d = d;
+	}
+	/**
+	 * Get the angular velocity of the rose curve
+	 * @return the angular velocity of the rose curve
+	 */
+	public Integer getAngularVelocity() {
+		return k;
+	}
+	/**
+	 * Set the angular velocity of the rose curve
+	 * @param k the angular velocity of the rose curve
+	 */
+	public void setAngularVelocity(Integer k) {
+		this.k = k;
 	}
 	/**
 	 * Start the task
