@@ -12,7 +12,7 @@ import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
  */
 public class ACommandHandler implements SettingSubCommandHandler {
 	@Override
-	public void onCommand(CommandSender cmdSender, String[] args, Task task) {
+	public void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task) {
 		if(args.length != 1) {
 			cmdSender.print(LogColor.RED + "Usage: /rcp setting a <double>");
 			return;

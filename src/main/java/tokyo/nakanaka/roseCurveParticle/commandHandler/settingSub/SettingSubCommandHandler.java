@@ -12,8 +12,10 @@ public interface SettingSubCommandHandler {
 	 * Invoked when the sub command is run
 	 * @param cmdSender a command sender who run the command
 	 * @param args arguments of the sub command
+	 * @param taskName the name of the task that the sub command handles
+	 * @param task the task that the sub command handles
 	 */
-	void onCommand(CommandSender cmdSender, String[] args, Task task);
+	void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task);
 	/**
 	 * Returns a String list which will be used on auto tab complete for the sub command
 	 * @param cmdSender a command sender who run the command
