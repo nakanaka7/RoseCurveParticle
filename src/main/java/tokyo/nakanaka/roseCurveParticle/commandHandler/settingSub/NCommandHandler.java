@@ -29,7 +29,7 @@ public class NCommandHandler implements SettingSubCommandHandler {
 			return;
 		}
 		if(value <= 0) {
-			cmdSender.print(LogColor.RED + "\"n\" value must be positive");
+			cmdSender.print(LogColor.RED + "\"n\" value must be positive (input: n = " + value + ")");
 			return;
 		}
 		task.setNFactor(value);
