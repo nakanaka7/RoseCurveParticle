@@ -1,6 +1,7 @@
 package tokyo.nakanaka.roseCurveParticle;
 
-import tokyo.nakanaka.Axis;
+ import tokyo.nakanaka.Axis;
+import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.World;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
@@ -17,18 +18,23 @@ public class Task {
 	private Integer n;
 	private Integer d;
 	private Double k;
+	private Scheduler scheduler;
 	private boolean activating;
 	/**
 	 * Construct a task which does not have any information
+	 * @param scheduler a scheduler which is used by the task
 	 */
-	public Task() {
+	public Task(Scheduler scheduler) {
+		this.scheduler = scheduler;
 	}
 	/**
 	 * Construct a task which has the information of the rose curve center
+	 * @param scheduler a scheduler which is used by the task
 	 * @param world a world which hold the rose curve
 	 * @param center a center of the rose curve
 	 */
-	public Task(World world, Vector3D center) {
+	public Task(Scheduler scheduler, World world, Vector3D center) {
+		this.scheduler = scheduler;
 		this.world = world;
 		this.center = center;
 	}
