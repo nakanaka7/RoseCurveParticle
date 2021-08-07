@@ -5,6 +5,7 @@ import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.World;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
+import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
 /**
  * Represents a task which draws a particle rose line in a world
@@ -17,7 +18,8 @@ public class Task {
 	private Double a;
 	private Integer n;
 	private Integer d;
-	private Double k;
+	private Integer k;
+	private int phase;
 	private Scheduler scheduler;
 	private boolean activating;
 	/**
@@ -148,21 +150,64 @@ public class Task {
 	 * Get the angular velocity of the rose curve
 	 * @return the angular velocity of the rose curve
 	 */
-	public Double getAngularVelocity() {
+	public Integer getAngularVelocity() {
 		return k;
 	}
 	/**
 	 * Set the angular velocity of the rose curve
 	 * @param k the angular velocity of the rose curve
 	 */
-	public void setAngularVelocity(double k) {
+	public void setAngularVelocity(int k) {
 		this.k = k;
 	}
 	/**
 	 * Start the task
 	 */
 	public void start() {
+		if(this.world == null || this.center == null || this.particle == null 
+			|| this.a == null || this.n == null || this.d == null || this.k == null) {
+			throw new IllegalArgumentException();
+		}
 		this.activating = true;
+		this.spawnParticle();
+	}
+	
+	private void spawnParticle() {
+		if(!this.activating) {
+			return;
+		}
+		RoseCurve roseCurve = new RoseCurve(this.a, this.n, this.d);
+		for(int i = this.phase; i < this.phase + k; ++i) {
+			double r = roseCurve.getRadius(i * Math.PI / 180.0);
+			double p = r * Math.cos(i * Math.PI / 180.0);
+			double q = r * Math.sin(i * Math.PI / 180.0);
+			double x = this.center.getX();
+			double y = this.center.getY();
+			double z = this.center.getZ();
+			switch(this.axis) {
+			case X:
+				y = y + p;
+				z = z + q;
+				break;
+			case Y:
+				z = z + p;
+				x = x + q;
+				break;
+			case Z:
+				x = x + p;
+				y = y + q;
+				break;
+			default:
+				break;
+			}
+			try {
+				this.world.spawnParticle(x, y, z, this.particle, 1);
+			}catch(IllegalArgumentException e) {
+				this.activating = false;
+			}
+		}
+		this.phase += this.k;
+		this.scheduler.scheduleLater(1, () -> this.spawnParticle());
 	}
 	/**
 	 * Stop the task
