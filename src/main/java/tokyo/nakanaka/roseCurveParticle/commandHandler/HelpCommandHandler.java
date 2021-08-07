@@ -25,6 +25,7 @@ public class HelpCommandHandler implements CommandHandler {
 		cmdHelpMap.put("list", RcpCommandHelps.LIST_HELP);
 		cmdHelpMap.put("setting", RcpCommandHelps.SETTING_HELP);
 		cmdHelpMap.put("start", RcpCommandHelps.START_HELP);
+		cmdHelpMap.put("stop", RcpCommandHelps.STOP_HELP);
 	}
 	
 	@Override
