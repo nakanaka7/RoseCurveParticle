@@ -27,6 +27,7 @@ public class CommandHandlerFunctions {
 		lines.add(LogColor.LIGHT_PURPLE + "d: " + LogColor.RESET + task.getDFactor());
 		lines.add(LogColor.LIGHT_PURPLE + "k: " + LogColor.RESET + task.getAngularVelocity() + "[degree/ tick]");
 		lines.add("---------------------------------------");
+		lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + task.getParticle().getId().toString());
 		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + task.getWorld());
 		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
 		lines.add(LogColor.LIGHT_PURPLE + "Axis: " + LogColor.RESET + task.getAxis().toString().toLowerCase());
