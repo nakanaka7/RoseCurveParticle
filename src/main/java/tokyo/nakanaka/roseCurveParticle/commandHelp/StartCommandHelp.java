@@ -8,7 +8,7 @@ import tokyo.nakanaka.logger.LogColor;
 /** 
  * CommandHelp for "/rcp start" command
  */
-public class StartCommandHelp implements CommandHelp {
+class StartCommandHelp implements CommandHelp {
 
 	@Override
 	public String getUsage() {
