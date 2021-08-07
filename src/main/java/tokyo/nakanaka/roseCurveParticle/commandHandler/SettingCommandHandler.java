@@ -76,7 +76,9 @@ public class SettingCommandHandler implements CommandHandler {
 					.map(s -> s.getKey())
 					.collect(Collectors.toList());
 		}else if(args.length == 2) {
-			return List.of("a", "n", "d", "world", "center", "axis");
+			return this.subCmdMap.entrySet().stream()
+				.map(s -> s.getKey())
+				.collect(Collectors.toList());
 		}
 		SettingSubCommandHandler subHandler = subCmdMap.get(args[1]);
 		if(subHandler != null) {
