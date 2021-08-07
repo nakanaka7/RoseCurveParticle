@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import tokyo.nakanaka.CommandHandler;
+import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.particle.ParticleParser;
@@ -27,11 +28,11 @@ public class Main {
 	 * @param particleParser a particle parser for the platform that uses the main
 	 * @param worldFinder a world finder for the platform that uses the main
 	 */
-	public Main(ParticleParser particleParser, WorldFinder worldFinder) {
+	public Main(Scheduler scheduler, ParticleParser particleParser, WorldFinder worldFinder) {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
 		this.cmdHandlerMap.put("help", new HelpCommandHandler());
-		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap));
+		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap, scheduler));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
 		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap, particleParser, worldFinder));
