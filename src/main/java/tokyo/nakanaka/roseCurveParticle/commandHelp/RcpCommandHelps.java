@@ -12,4 +12,5 @@ public class RcpCommandHelps {
 	public static CommandHelp LIST_HELP = new ListCommandHelp();
 	public static CommandHelp SETTING_HELP = new SettingCommandHelp();
 	public static CommandHelp START_HELP = new StartCommandHelp();
+	public static CommandHelp STOP_HELP = new StopCommandHelp();
 }
