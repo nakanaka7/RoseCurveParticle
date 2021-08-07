@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.Task;
 /**
  * Hold Functions for command handling
@@ -27,7 +28,12 @@ public class CommandHandlerFunctions {
 		lines.add(LogColor.LIGHT_PURPLE + "d: " + LogColor.RESET + task.getDFactor());
 		lines.add(LogColor.LIGHT_PURPLE + "k: " + LogColor.RESET + task.getAngularVelocity() + "[degree/ tick]");
 		lines.add("---------------------------------------");
-		lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + task.getParticle().getId().toString());
+		String particleStr = null;
+		Particle particle = task.getParticle();
+		if(particle != null) {
+			particleStr = particle.getId().toString();
+		}
+		lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + particleStr);
 		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + task.getWorld());
 		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
 		lines.add(LogColor.LIGHT_PURPLE + "Axis: " + LogColor.RESET + task.getAxis().toString().toLowerCase());
