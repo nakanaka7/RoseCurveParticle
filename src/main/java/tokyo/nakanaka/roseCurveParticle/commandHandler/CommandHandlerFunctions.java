@@ -3,6 +3,7 @@ package tokyo.nakanaka.roseCurveParticle.commandHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import tokyo.nakanaka.World;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.Task;
@@ -34,7 +35,12 @@ public class CommandHandlerFunctions {
 			particleStr = particle.getId().toString();
 		}
 		lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + particleStr);
-		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + task.getWorld());
+		String worldName = null;
+		World world = task.getWorld();
+		if(world != null) {
+			worldName = world.getName();
+		}
+		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + worldName);
 		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
 		lines.add(LogColor.LIGHT_PURPLE + "Axis: " + LogColor.RESET + task.getAxis().toString().toLowerCase());
 		return lines;
