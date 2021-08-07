@@ -3,9 +3,12 @@ package tokyo.nakanaka.roseCurveParticle.commandHandler;
 import java.util.List;
 import java.util.Map;
 
+import tokyo.nakanaka.BlockPosition;
 import tokyo.nakanaka.CommandHandler;
+import tokyo.nakanaka.commandSender.BlockPositionalCommandSender;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
 /**
@@ -36,7 +39,12 @@ public class CreateCommandHandler implements CommandHandler {
 		}
 		//try to create new task
 		if(args.length == 1) {
-			task = new Task();
+			if(cmdSender instanceof BlockPositionalCommandSender posCmdSender) {
+				BlockPosition bp = posCmdSender.getBlockPosition();
+				task = new Task(bp.world(), new Vector3D(bp.x(), bp.y(), bp.z()));
+			}else {
+				task = new Task();
+			}
 		}else if(args.length >= 2) {
 			cmdSender.print(usageMsg);
 			return;
