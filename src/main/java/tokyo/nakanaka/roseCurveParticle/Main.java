@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import tokyo.nakanaka.CommandHandler;
+import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
+import tokyo.nakanaka.particle.ParticleParser;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CreateCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.DelCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.HelpCommandHandler;
@@ -20,15 +22,17 @@ public class Main {
 	private Map<String, CommandHandler> cmdHandlerMap;
 	/**
 	 * Constructs a main.
+	 * @param particleParser a particle parser for the platform that uses the main
+	 * @param worldFinder a world finder for the platform that uses the main
 	 */
-	public Main() {
+	public Main(ParticleParser particleParser, WorldFinder worldFinder) {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
 		this.cmdHandlerMap.put("help", new HelpCommandHandler());
 		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
-		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap));
+		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap, particleParser, worldFinder));
 	}
 	/**
 	 * Run a /rcp command
