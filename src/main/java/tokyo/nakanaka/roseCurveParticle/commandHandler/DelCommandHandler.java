@@ -33,6 +33,7 @@ public class DelCommandHandler implements CommandHandler {
 			cmdSender.print(LogColor.RED + "No task which name is \"" + args[0] + "\"");
 			return;
 		}
+		task.stop();
 		this.taskMap.remove(args[0]);
 		cmdSender.print(LogColor.LIGHT_PURPLE + "Delete the task \"" + args[0] + "\"");
 	}
