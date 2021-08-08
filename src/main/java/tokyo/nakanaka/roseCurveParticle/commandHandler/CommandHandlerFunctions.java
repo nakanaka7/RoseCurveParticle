@@ -5,6 +5,7 @@ import java.util.List;
 
 import tokyo.nakanaka.World;
 import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.Task;
 /**
@@ -59,19 +60,30 @@ public class CommandHandlerFunctions {
 			lines.add(LogColor.LIGHT_PURPLE + "k = " + LogColor.RESET + strValue + " [degree/tick]");
 		}
 		lines.add("---------------------------------------");
-		String particleStr = null;
-		Particle particle = task.getParticle();
-		if(particle != null) {
-			particleStr = particle.getId().toString();
+		{//particle
+			String strParticle = "";
+			Particle particle = task.getParticle();
+			if(particle != null) {
+				strParticle = particle.getId().toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + strParticle);
 		}
-		lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + particleStr);
-		String worldName = null;
-		World world = task.getWorld();
-		if(world != null) {
-			worldName = world.getName();
+		{//world
+			String worldName = "";
+			World world = task.getWorld();
+			if(world != null) {
+				worldName = world.getName();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + worldName);
 		}
-		lines.add(LogColor.LIGHT_PURPLE + "World: " + LogColor.RESET + worldName);
-		lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + task.getCenter());
+		{//center
+			String strCenter = "";
+			Vector3D center = task.getCenter();
+			if(center != null) {
+				strCenter = center.toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + strCenter);
+		}
 		lines.add(LogColor.LIGHT_PURPLE + "Axis: " + LogColor.RESET + task.getAxis().toString().toLowerCase());
 		return lines;
 	}
