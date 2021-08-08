@@ -32,7 +32,7 @@ public class StartCommandHandler implements CommandHandler {
 			cmdSender.print(LogColor.RED + "No task which name is \"" + args[0] + "\"");
 			return;
 		}
-		task.start();
+		task.start(cmdSender);
 		cmdSender.print(LogColor.LIGHT_PURPLE + "Started the task " + "\"" + args[0] + "\"");
 	}
 	
