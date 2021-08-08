@@ -22,12 +22,42 @@ public class CommandHandlerFunctions {
 	public static List<String> createSettingLines(String taskName, Task task){
 		List<String> lines = new ArrayList<>();
 		lines.add("--- [" + LogColor.LIGHT_PURPLE + "Settings of " + LogColor.RESET + taskName + "] ---------------------");
-		lines.add(LogColor.LIGHT_PURPLE + "  eq. " + LogColor.RESET + "r = a * sin((n/d) * θ)");
-		lines.add(  "θ = k * t");
-		lines.add(LogColor.LIGHT_PURPLE + "a: " + LogColor.RESET + task.getAFactor());
-		lines.add(LogColor.LIGHT_PURPLE + "n: " + LogColor.RESET + task.getNFactor());
-		lines.add(LogColor.LIGHT_PURPLE + "d: " + LogColor.RESET + task.getDFactor());
-		lines.add(LogColor.LIGHT_PURPLE + "k: " + LogColor.RESET + task.getAngularVelocity() + "[degree/ tick]");
+		lines.add(LogColor.LIGHT_PURPLE + "  eq1. " + LogColor.RESET + "r = " + LogColor.LIGHT_PURPLE + "a " 
+			+ LogColor.RESET + "* sin[(" + LogColor.LIGHT_PURPLE + "n" + LogColor.RESET + "/" + LogColor.LIGHT_PURPLE + "d " 
+			+ LogColor.RESET + ") * θ]");
+		lines.add(LogColor.LIGHT_PURPLE + "  eq2. " + LogColor.RESET + "θ = " + LogColor.LIGHT_PURPLE + "k " + "* t [degree]");
+		{//a
+			String strValue = "";
+			Double value = task.getAFactor();
+			if(value != null) {
+				strValue = value.toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "a = " + LogColor.RESET + strValue);
+		}
+		{//n
+			String strValue = "";
+			Integer value = task.getNFactor();
+			if(value != null) {
+				strValue = value.toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "n = " + LogColor.RESET + strValue);
+		}
+		{//d
+			String strValue = "";
+			Integer value = task.getDFactor();
+			if(value != null) {
+				strValue = value.toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "d = " + LogColor.RESET + strValue);
+		}
+		{//k
+			String strValue = "";
+			Integer value = task.getAngularVelocity();
+			if(value != null) {
+				strValue = value.toString();
+			}
+			lines.add(LogColor.LIGHT_PURPLE + "k = " + LogColor.RESET + strValue + " [degree/tick]");
+		}
 		lines.add("---------------------------------------");
 		String particleStr = null;
 		Particle particle = task.getParticle();
