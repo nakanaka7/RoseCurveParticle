@@ -3,6 +3,8 @@ package tokyo.nakanaka.roseCurveParticle;
  import tokyo.nakanaka.Axis;
 import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.World;
+import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.logger.Logger;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
@@ -163,16 +165,16 @@ public class Task {
 	/**
 	 * Start the task
 	 */
-	public void start() {
+	public void start(Logger logger) {
 		if(this.world == null || this.center == null || this.particle == null 
 			|| this.a == null || this.n == null || this.d == null || this.k == null) {
 			throw new IllegalArgumentException();
 		}
 		this.activating = true;
-		this.spawnParticle();
+		this.spawnParticle(logger);
 	}
 	
-	private void spawnParticle() {
+	private void spawnParticle(Logger logger) {
 		if(!this.activating) {
 			return;
 		}
@@ -204,10 +206,12 @@ public class Task {
 				this.world.spawnParticle(x, y, z, this.particle, 1);
 			}catch(IllegalArgumentException e) {
 				this.activating = false;
+				logger.print(LogColor.RED + "The particle " + "\"" + this.particle.getId() + "\" is incompatible with the world");
+				return;
 			}
 		}
 		this.phase += this.k;
-		this.scheduler.scheduleLater(1, () -> this.spawnParticle());
+		this.scheduler.scheduleLater(1, () -> this.spawnParticle(logger));
 	}
 	/**
 	 * Stop the task
