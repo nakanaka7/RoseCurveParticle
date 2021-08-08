@@ -26,6 +26,7 @@ public class StartCommandHandler implements CommandHandler {
 	public void onCommand(CommandSender cmdSender, String[] args) {
 		if(args.length != 1) {
 			cmdSender.print(LogColor.RED + "Usage: " + RcpCommandHelps.START_HELP.getUsage());
+			return;
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
