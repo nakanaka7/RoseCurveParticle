@@ -23,17 +23,19 @@ public class CommandHandlerFunctions {
 	public static List<String> createSettingLines(String taskName, Task task){
 		List<String> lines = new ArrayList<>();
 		lines.add("--- [" + LogColor.LIGHT_PURPLE + "Settings of " + LogColor.RESET + taskName + "] ---------------------");
-		lines.add(LogColor.LIGHT_PURPLE + "  eq1. " + LogColor.RESET + "r = " + LogColor.LIGHT_PURPLE + "a " 
-			+ LogColor.RESET + "* sin[(" + LogColor.LIGHT_PURPLE + "n" + LogColor.RESET + "/" + LogColor.LIGHT_PURPLE + "d " 
+		lines.add(LogColor.LIGHT_PURPLE + "eq.1: " + LogColor.RESET + "r = " + LogColor.LIGHT_PURPLE + "a " 
+			+ LogColor.RESET + "* sin [(" + LogColor.LIGHT_PURPLE + "n " + LogColor.RESET + "/ " + LogColor.LIGHT_PURPLE + "d" 
 			+ LogColor.RESET + ") * θ]");
-		lines.add(LogColor.LIGHT_PURPLE + "  eq2. " + LogColor.RESET + "θ = " + LogColor.LIGHT_PURPLE + "k " + "* t [degree]");
+		lines.add(LogColor.LIGHT_PURPLE + "eq.2: " + LogColor.RESET + "θ " + LogColor.RESET + "[degree] "
+			+ LogColor.RESET + "= " + LogColor.LIGHT_PURPLE + "k " 
+			+ LogColor.RESET + "* " + LogColor.LIGHT_PURPLE + "t " + LogColor.RESET + "[tick]");
 		{//a
 			String strValue = "";
 			Double value = task.getAFactor();
 			if(value != null) {
 				strValue = value.toString();
 			}
-			lines.add(LogColor.LIGHT_PURPLE + "a = " + LogColor.RESET + strValue);
+			lines.add(LogColor.LIGHT_PURPLE + "  a = " + LogColor.RESET + strValue);
 		}
 		{//n
 			String strValue = "";
@@ -41,7 +43,7 @@ public class CommandHandlerFunctions {
 			if(value != null) {
 				strValue = value.toString();
 			}
-			lines.add(LogColor.LIGHT_PURPLE + "n = " + LogColor.RESET + strValue);
+			lines.add(LogColor.LIGHT_PURPLE + "  n = " + LogColor.RESET + strValue);
 		}
 		{//d
 			String strValue = "";
@@ -49,7 +51,7 @@ public class CommandHandlerFunctions {
 			if(value != null) {
 				strValue = value.toString();
 			}
-			lines.add(LogColor.LIGHT_PURPLE + "d = " + LogColor.RESET + strValue);
+			lines.add(LogColor.LIGHT_PURPLE + "  d = " + LogColor.RESET + strValue);
 		}
 		{//k
 			String strValue = "";
@@ -57,9 +59,9 @@ public class CommandHandlerFunctions {
 			if(value != null) {
 				strValue = value.toString();
 			}
-			lines.add(LogColor.LIGHT_PURPLE + "k = " + LogColor.RESET + strValue + " [degree/tick]");
+			lines.add(LogColor.LIGHT_PURPLE + "  k = " + LogColor.RESET + strValue + " [degree / tick]");
 		}
-		lines.add("---------------------------------------");
+		lines.add("------------------------------------------");
 		{//particle
 			String strParticle = "";
 			Particle particle = task.getParticle();
@@ -80,7 +82,7 @@ public class CommandHandlerFunctions {
 			String strCenter = "";
 			Vector3D center = task.getCenter();
 			if(center != null) {
-				strCenter = center.toString();
+				strCenter = center.getX() + " / " + center.getY() + " / " + center.getZ();
 			}
 			lines.add(LogColor.LIGHT_PURPLE + "Center: " + LogColor.RESET + strCenter);
 		}
