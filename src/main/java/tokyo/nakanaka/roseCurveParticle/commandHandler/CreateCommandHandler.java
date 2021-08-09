@@ -59,7 +59,10 @@ public class CreateCommandHandler implements CommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return List.of("task1", "task2", "task3");
+		if(args.length == 1) {
+			return List.of("task1", "task2", "task3");
+		}
+		return List.of();
 	}
 
 }

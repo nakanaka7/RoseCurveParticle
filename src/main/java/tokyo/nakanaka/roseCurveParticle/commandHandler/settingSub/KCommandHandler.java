@@ -5,7 +5,7 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 /**
  * Handles "k" sub command of "/rcp setting &lt;taskName&gt;" command
@@ -24,8 +24,12 @@ public class KCommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to double");
 			return;
 		}
+		if(value == 0) {
+			cmdSender.print(LogColor.RED + "k value must not be 0");
+			return;
+		}
 		task.setAngularVelocity(value);
-		CommandHandlerFunctions.createSettingLines(taskName, task).stream()
+		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
 	@Override
