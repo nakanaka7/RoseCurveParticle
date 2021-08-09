@@ -17,9 +17,9 @@ public class KCommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> k <double>");
 			return;
 		}
-		int value;
+		double value;
 		try{
-			value = Integer.parseInt(args[0]);
+			value = Double.parseDouble(args[0]);
 		}catch(IllegalArgumentException e) {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to double");
 			return;
