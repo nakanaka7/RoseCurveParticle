@@ -183,9 +183,10 @@ public class Task {
 			return;
 		}
 		RoseCurve roseCurve = new RoseCurve(this.a, this.n, this.d);
-		double l = 20.0 / (double)a;
-		double s = this.phase + this.k;
-		while(this.phase < s) {
+		double density = 12;
+		double deg = 360 / ((double)a * density);
+		double ph0 = this.phase;
+		while(true) {
 			double arg = this.phase * Math.PI / 180.0;
 			double r = roseCurve.getRadius(arg);
 			double p = r * Math.cos(arg);
@@ -216,7 +217,17 @@ public class Task {
 				logger.print(LogColor.RED + "The particle " + "\"" + this.particle.getId() + "\" is incompatible with the world");
 				return;
 			}
-			this.phase += l;
+			if(this.k > 0) {
+				this.phase += deg;
+				if(this.phase >= ph0 + k) {
+					break;
+				}
+			}else {
+				this.phase -= deg;
+				if(this.phase <= ph0 + k) {
+					break;
+				}
+			}
 		}
 		this.scheduler.scheduleLater(1, () -> this.spawnParticle(logger));
 	}
