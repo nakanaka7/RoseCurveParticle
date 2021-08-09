@@ -1,9 +1,14 @@
 package tokyo.nakanaka.roseCurveParticle;
 
-import tokyo.nakanaka.Axis;
+ import tokyo.nakanaka.Axis;
+import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.World;
+import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.logger.Logger;
 import tokyo.nakanaka.math.Vector3D;
+import tokyo.nakanaka.particle.DisplayMode;
 import tokyo.nakanaka.particle.Particle;
+import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
 /**
  * Represents a task which draws a particle rose line in a world
@@ -17,18 +22,24 @@ public class Task {
 	private Integer n;
 	private Integer d;
 	private Double k;
+	private double phase;
+	private Scheduler scheduler;
 	private boolean activating;
 	/**
 	 * Construct a task which does not have any information
+	 * @param scheduler a scheduler which is used by the task
 	 */
-	public Task() {
+	public Task(Scheduler scheduler) {
+		this.scheduler = scheduler;
 	}
 	/**
 	 * Construct a task which has the information of the rose curve center
+	 * @param scheduler a scheduler which is used by the task
 	 * @param world a world which hold the rose curve
 	 * @param center a center of the rose curve
 	 */
-	public Task(World world, Vector3D center) {
+	public Task(Scheduler scheduler, World world, Vector3D center) {
+		this.scheduler = scheduler;
 		this.world = world;
 		this.center = center;
 	}
@@ -148,15 +159,78 @@ public class Task {
 	/**
 	 * Set the angular velocity of the rose curve
 	 * @param k the angular velocity of the rose curve
+	 * @throws IllegalArgumentException if k is 0
 	 */
 	public void setAngularVelocity(double k) {
+		if(k == 0) {
+			throw new IllegalArgumentException();
+		}
 		this.k = k;
 	}
 	/**
 	 * Start the task
 	 */
-	public void start() {
+	public void start(Logger logger) {
+		if(this.world == null || this.center == null || this.particle == null 
+			|| this.a == null || this.n == null || this.d == null || this.k == null) {
+			throw new IllegalArgumentException();
+		}
 		this.activating = true;
+		this.spawnParticle(logger);
+	}
+	
+	private void spawnParticle(Logger logger) {
+		if(!this.activating) {
+			return;
+		}
+		RoseCurve roseCurve = new RoseCurve(this.a, this.n, this.d);
+		double density = 12;
+		double deg = 360 / ((double)a * density);
+		double ph0 = this.phase;
+		while(true) {
+			double arg = this.phase * Math.PI / 180.0;
+			double r = roseCurve.getRadius(arg);
+			double p = r * Math.cos(arg);
+			double q = r * Math.sin(arg);
+			double x = this.center.getX();
+			double y = this.center.getY();
+			double z = this.center.getZ();
+			switch(this.axis) {
+			case X:
+				y = y + p;
+				z = z + q;
+				break;
+			case Y:
+				z = z + p;
+				x = x + q;
+				break;
+			case Z:
+				x = x + p;
+				y = y + q;
+				break;
+			default:
+				break;
+			}
+			try {
+				this.world.spawnParticle(x, y, z, this.particle, 1, DisplayMode.FORCE);
+			}catch(IllegalArgumentException e) {
+				this.activating = false;
+				logger.print(LogColor.RED + "The particle " + "\"" + this.particle.getId() + "\" is incompatible with the world");
+				return;
+			}
+			if(this.k > 0) {
+				this.phase += deg;
+				if(this.phase >= ph0 + k) {
+					break;
+				}
+			}else {
+				this.phase -= deg;
+				if(this.phase <= ph0 + k) {
+					break;
+				}
+			}
+		}
+		this.scheduler.scheduleLater(1, () -> this.spawnParticle(logger));
 	}
 	/**
 	 * Stop the task

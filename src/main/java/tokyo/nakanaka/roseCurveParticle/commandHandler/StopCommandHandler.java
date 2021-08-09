@@ -9,24 +9,23 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
+
 /**
- * Handles "/rcp del" command.
+ * Handles "/rcp stop" command
  */
-public class DelCommandHandler implements CommandHandler {
+public class StopCommandHandler implements CommandHandler {
 	private Map<String, Task> taskMap;
 	/**
 	 * @param taskMap a map which stores tasks
 	 */
-	public DelCommandHandler(Map<String, Task> taskMap) {
+	public StopCommandHandler(Map<String, Task> taskMap) {
 		this.taskMap = taskMap;
 	}
-
+	
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
-		String usageMsg = LogColor.RED + "Usage: " + RcpCommandHelps.DEL_HELP.getUsage();
 		if(args.length != 1) {
-			cmdSender.print(usageMsg);
-			return;
+			cmdSender.print(LogColor.RED + "Usage: " + RcpCommandHelps.START_HELP.getUsage());
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
@@ -34,14 +33,14 @@ public class DelCommandHandler implements CommandHandler {
 			return;
 		}
 		task.stop();
-		this.taskMap.remove(args[0]);
-		cmdSender.print(LogColor.LIGHT_PURPLE + "Delete the task \"" + args[0] + "\"");
+		cmdSender.print(LogColor.LIGHT_PURPLE + "Stopped the task " + "\"" + args[0] + "\"");		
 	}
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.taskMap.keySet().stream()
-				.collect(Collectors.toList());
+		return this.taskMap.entrySet().stream()
+			.map(s -> s.getKey())
+			.collect(Collectors.toList());
 	}
 
 }

@@ -52,7 +52,7 @@ public class SettingCommandHandler implements CommandHandler {
 			return;
 		}
 		if(args.length == 1) {
-			CommandHandlerFunctions.createSettingLines(args[0], task).stream()
+			CommandHandlerUtils.createSettingLines(args[0], task).stream()
 				.forEach(s -> cmdSender.print(s));
 		}else if(args.length >= 2) {
 			SettingSubCommandHandler subCmdHandler = this.subCmdMap.get(args[1]);

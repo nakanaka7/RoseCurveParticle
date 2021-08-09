@@ -5,6 +5,7 @@ import java.util.Map;
 
 import tokyo.nakanaka.BlockPosition;
 import tokyo.nakanaka.CommandHandler;
+import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.commandSender.BlockPositionalCommandSender;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
@@ -16,11 +17,13 @@ import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
  */
 public class CreateCommandHandler implements CommandHandler {
 	private Map<String, Task> taskMap;
+	private Scheduler scheduler;
 	/**
 	 * @param taskMap a map which stores tasks
 	 */
-	public CreateCommandHandler(Map<String, Task> taskMap) {
+	public CreateCommandHandler(Map<String, Task> taskMap, Scheduler scheduler) {
 		this.taskMap = taskMap;
+		this.scheduler = scheduler;
 	}
 
 	@Override
@@ -41,9 +44,9 @@ public class CreateCommandHandler implements CommandHandler {
 		if(args.length == 1) {
 			if(cmdSender instanceof BlockPositionalCommandSender posCmdSender) {
 				BlockPosition bp = posCmdSender.getBlockPosition();
-				task = new Task(bp.world(), new Vector3D(bp.x(), bp.y(), bp.z()));
+				task = new Task(this.scheduler, bp.world(), new Vector3D(bp.x(), bp.y(), bp.z()));
 			}else {
-				task = new Task();
+				task = new Task(this.scheduler);
 			}
 		}else if(args.length >= 2) {
 			cmdSender.print(usageMsg);
@@ -56,7 +59,10 @@ public class CreateCommandHandler implements CommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return List.of("task1", "task2", "task3");
+		if(args.length == 1) {
+			return List.of("task1", "task2", "task3");
+		}
+		return List.of();
 	}
 
 }

@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
 import tokyo.nakanaka.bukkit.BukkitFunctions;
 import tokyo.nakanaka.bukkit.BukkitParticleParser;
+import tokyo.nakanaka.bukkit.BukkitScheduler;
 import tokyo.nakanaka.bukkit.BukkitWorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurveParticle.Main;
@@ -14,7 +15,7 @@ import java.util.List;
  * An entry point of this plugin
  */
 public class RoseCurveParticlePlugin extends JavaPlugin {
-	private Main main = new Main(new BukkitParticleParser(), new BukkitWorldFinder(this.getServer()));
+	private Main main = new Main(new BukkitScheduler(this), new BukkitParticleParser(), new BukkitWorldFinder(this.getServer()));
 	
 	@Override
 	public boolean onCommand(org.bukkit.command.CommandSender cmdSender0, Command command, String label, String[] args) {

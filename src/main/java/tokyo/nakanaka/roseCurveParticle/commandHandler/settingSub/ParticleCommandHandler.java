@@ -7,7 +7,7 @@ import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleParser;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 public class ParticleCommandHandler implements SettingSubCommandHandler {
 	private ParticleParser particleParser;
@@ -27,7 +27,7 @@ public class ParticleCommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to particle");
 		}
 		task.setParticle(particle);
-		CommandHandlerFunctions.createSettingLines(taskName, task).stream()
+		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
 
