@@ -20,7 +20,7 @@ public class Task {
 	private Double a;
 	private Integer n;
 	private Integer d;
-	private Integer k;
+	private Double k;
 	private double phase;
 	private Scheduler scheduler;
 	private boolean activating;
@@ -152,14 +152,14 @@ public class Task {
 	 * Get the angular velocity of the rose curve
 	 * @return the angular velocity of the rose curve
 	 */
-	public Integer getAngularVelocity() {
+	public Double getAngularVelocity() {
 		return k;
 	}
 	/**
 	 * Set the angular velocity of the rose curve
 	 * @param k the angular velocity of the rose curve
 	 */
-	public void setAngularVelocity(int k) {
+	public void setAngularVelocity(double k) {
 		this.k = k;
 	}
 	/**
