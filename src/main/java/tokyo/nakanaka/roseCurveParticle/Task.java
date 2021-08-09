@@ -158,8 +158,12 @@ public class Task {
 	/**
 	 * Set the angular velocity of the rose curve
 	 * @param k the angular velocity of the rose curve
+	 * @throws IllegalArgumentException if k is 0
 	 */
 	public void setAngularVelocity(double k) {
+		if(k == 0) {
+			throw new IllegalArgumentException();
+		}
 		this.k = k;
 	}
 	/**
