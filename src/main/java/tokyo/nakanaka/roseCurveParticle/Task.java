@@ -21,7 +21,7 @@ public class Task {
 	private Integer n;
 	private Integer d;
 	private Integer k;
-	private int phase;
+	private double phase;
 	private Scheduler scheduler;
 	private boolean activating;
 	/**
@@ -179,10 +179,13 @@ public class Task {
 			return;
 		}
 		RoseCurve roseCurve = new RoseCurve(this.a, this.n, this.d);
-		for(int i = this.phase; i < this.phase + k; ++i) {
-			double r = roseCurve.getRadius(i * Math.PI / 180.0);
-			double p = r * Math.cos(i * Math.PI / 180.0);
-			double q = r * Math.sin(i * Math.PI / 180.0);
+		double l = 20.0 / (double)a;
+		double s = this.phase + this.k;
+		while(this.phase < s) {
+			double arg = this.phase * Math.PI / 180.0;
+			double r = roseCurve.getRadius(arg);
+			double p = r * Math.cos(arg);
+			double q = r * Math.sin(arg);
 			double x = this.center.getX();
 			double y = this.center.getY();
 			double z = this.center.getZ();
@@ -209,8 +212,8 @@ public class Task {
 				logger.print(LogColor.RED + "The particle " + "\"" + this.particle.getId() + "\" is incompatible with the world");
 				return;
 			}
+			this.phase += l;
 		}
-		this.phase += this.k;
 		this.scheduler.scheduleLater(1, () -> this.spawnParticle(logger));
 	}
 	/**
