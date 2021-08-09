@@ -8,7 +8,7 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerFunctions;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 /**
  * Handles "center" sub command of "/rcp setting &lt;taskName&gt;" command
@@ -44,7 +44,7 @@ public class CenterCommandHandler implements SettingSubCommandHandler {
 		}
 		Vector3D center = new Vector3D(x, y, z);
 		task.setCenter(center);
-		CommandHandlerFunctions.createSettingLines(taskName, task).stream()
+		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
 

@@ -11,8 +11,8 @@ import tokyo.nakanaka.roseCurveParticle.Task;
 /**
  * Hold Functions for command handling
  */
-public class CommandHandlerFunctions {
-	private CommandHandlerFunctions() {
+public class CommandHandlerUtils {
+	private CommandHandlerUtils() {
 	}
 	/**
 	 * Create message lines to print on "/rcp setting" command
