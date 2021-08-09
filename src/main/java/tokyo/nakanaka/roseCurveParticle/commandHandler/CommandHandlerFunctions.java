@@ -55,7 +55,7 @@ public class CommandHandlerFunctions {
 		}
 		{//k
 			String strValue = "";
-			Integer value = task.getAngularVelocity();
+			Double value = task.getAngularVelocity();
 			if(value != null) {
 				strValue = value.toString();
 			}
