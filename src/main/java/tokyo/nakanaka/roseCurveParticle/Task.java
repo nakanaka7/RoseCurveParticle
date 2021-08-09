@@ -6,6 +6,7 @@ import tokyo.nakanaka.World;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.logger.Logger;
 import tokyo.nakanaka.math.Vector3D;
+import tokyo.nakanaka.particle.DisplayMode;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
@@ -211,7 +212,7 @@ public class Task {
 				break;
 			}
 			try {
-				this.world.spawnParticle(x, y, z, this.particle, 1);
+				this.world.spawnParticle(x, y, z, this.particle, 1, DisplayMode.FORCE);
 			}catch(IllegalArgumentException e) {
 				this.activating = false;
 				logger.print(LogColor.RED + "The particle " + "\"" + this.particle.getId() + "\" is incompatible with the world");
