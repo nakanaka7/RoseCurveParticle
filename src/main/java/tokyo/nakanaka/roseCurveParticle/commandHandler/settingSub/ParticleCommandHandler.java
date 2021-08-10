@@ -22,9 +22,12 @@ public class ParticleCommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> particle <id> [extra]...");
 			return;
 		}
-		Particle particle = this.particleParser.parse(args);
-		if(particle == null) {
+		Particle particle;
+		try{
+			particle = this.particleParser.parse(args);
+		}catch(IllegalArgumentException e) {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to particle");
+			return;
 		}
 		task.setParticle(particle);
 		CommandHandlerUtils.createSettingLines(taskName, task).stream()
