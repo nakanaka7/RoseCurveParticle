@@ -5,14 +5,14 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.particle.ParticleParser;
+import tokyo.nakanaka.particle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 public class ParticleCommandHandler implements SettingSubCommandHandler {
-	private ParticleParser particleParser;
+	private ParticleParseHandler particleParser;
 	
-	public ParticleCommandHandler(ParticleParser particleParser) {
+	public ParticleCommandHandler(ParticleParseHandler particleParser) {
 		this.particleParser = particleParser;
 	}
 
@@ -23,10 +23,13 @@ public class ParticleCommandHandler implements SettingSubCommandHandler {
 			return;
 		}
 		Particle particle;
+		String label = args[0];
+		String[] subArgs = new String[args.length - 1];
+		System.arraycopy(args, 1, subArgs, 0, args.length - 1);
 		try{
-			particle = this.particleParser.parse(args);
+			particle = this.particleParser.onParse(label, subArgs);
 		}catch(IllegalArgumentException e) {
-			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to particle");
+			cmdSender.print(LogColor.RED + "Can not convert \"" + String.join(" ", args) + "\" to particle");
 			return;
 		}
 		task.setParticle(particle);
@@ -36,7 +39,13 @@ public class ParticleCommandHandler implements SettingSubCommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.particleParser.onTabComplete(args);
+		if(args.length == 0) {
+			return List.of();
+		}
+		String label = args[0];
+		String[] subArgs = new String[args.length - 1];
+		System.arraycopy(args, 1, subArgs, 0, args.length - 1);
+		return this.particleParser.onTabComplete(label, subArgs);
 	}
 
 }
