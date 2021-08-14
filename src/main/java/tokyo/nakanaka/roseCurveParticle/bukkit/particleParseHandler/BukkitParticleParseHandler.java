@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.bukkit;
+package tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler;
 
 import java.util.List;
 
