@@ -6,18 +6,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import tokyo.nakanaka.NamespacedID;
-import tokyo.nakanaka.bukkit.particle.BlockParticleParseHandler;
-import tokyo.nakanaka.bukkit.particle.DustParticleParseHandler;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleID;
-import tokyo.nakanaka.particle.SubParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
+import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class BukkitParticleParseHandler implements ParticleParseHandler {
 private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>();
 	
 	public BukkitParticleParseHandler() {
-		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleParseHandler());
+		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:block"), new BlockParticleParseHandler());
 	}
 	
