@@ -19,7 +19,7 @@ public class BlockParticleParseHandler implements SubParticleParseHandler {
 			throw new IllegalArgumentException();
 		}
 		Block block = Block.valueOf(args[0]);
-		Type type = Type.valueOf(args[1]);
+		Type type = Type.valueOf(args[1].toUpperCase());
 		return new BlockParticle(block, type);
 	}
 
