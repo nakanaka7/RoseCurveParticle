@@ -17,6 +17,7 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 	public BukkitParticleParseHandler() {
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:block"), new BlockParticleParseHandler());
+		subParseMap.put(NamespacedID.valueOf("minecraft:falling_dust"), new FallingDustParticleParseHandler());
 	}
 	
 	@Override
