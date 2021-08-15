@@ -9,7 +9,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.particle.ParticleParseHandler;
+import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ACommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.AxisCommandHandler;

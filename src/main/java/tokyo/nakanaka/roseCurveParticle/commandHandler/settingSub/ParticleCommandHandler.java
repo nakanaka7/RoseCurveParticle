@@ -5,7 +5,7 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.particle.ParticleParseHandler;
+import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 

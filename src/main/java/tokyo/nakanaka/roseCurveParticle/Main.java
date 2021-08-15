@@ -10,7 +10,6 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
-import tokyo.nakanaka.particle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CreateCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.DelCommandHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.HelpCommandHandler;

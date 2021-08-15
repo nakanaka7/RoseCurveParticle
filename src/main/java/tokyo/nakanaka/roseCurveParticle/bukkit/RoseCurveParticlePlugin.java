@@ -8,9 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tokyo.nakanaka.bukkit.BukkitFunctions;
 import tokyo.nakanaka.bukkit.BukkitScheduler;
 import tokyo.nakanaka.bukkit.BukkitWorldFinder;
-import tokyo.nakanaka.bukkit.particle.BukkitParticleParseHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurveParticle.Main;
+import tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler.BukkitParticleParseHandler;
 
 /**
  * An entry point of this plugin
