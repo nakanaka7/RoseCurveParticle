@@ -18,6 +18,7 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:block"), new BlockParticleParseHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:falling_dust"), new FallingDustParticleParseHandler());
+		subParseMap.put(NamespacedID.valueOf("minecraft:item"), new ItemParticleParseHandler());
 	}
 	
 	@Override
