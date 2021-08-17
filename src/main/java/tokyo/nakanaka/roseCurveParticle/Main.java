@@ -10,13 +10,8 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.CreateCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.DelCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.HelpCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.ListCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.SettingCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.StartCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.StopCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.*;
+
 /**
  * A hub class for this project, which may be used by platform(s)' entry point. 
  */
@@ -31,6 +26,7 @@ public class Main {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
 		this.cmdHandlerMap.put("help", new HelpCommandHandler());
+		this.cmdHandlerMap.put("ptclhelp", new ParticleHelpCommandHandler());
 		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap, scheduler));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
