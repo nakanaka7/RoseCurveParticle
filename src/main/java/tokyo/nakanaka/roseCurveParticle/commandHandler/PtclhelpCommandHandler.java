@@ -8,6 +8,7 @@ import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.BlockParticl
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.DustColorTransitionParticleHelp;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.DustParticleHelp;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.FallingDustParticleHelp;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.ItemParticleHelp;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.ParticleHelp;
 
 import java.util.LinkedHashMap;
@@ -21,6 +22,7 @@ public class PtclhelpCommandHandler implements CommandHandler {
         this.helpMap.put(new NamespacedID("minecraft", "dust"), new DustParticleHelp());
         this.helpMap.put(new NamespacedID("minecraft", "dust_color_transition"), new DustColorTransitionParticleHelp());
         this.helpMap.put(new NamespacedID("minecraft", "falling_dust"), new FallingDustParticleHelp());
+        this.helpMap.put(new NamespacedID("minecraft", "item"), new ItemParticleHelp());
     }
 
     @Override
