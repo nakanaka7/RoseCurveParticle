@@ -9,7 +9,7 @@ public class FallingDustParticleHelp implements ParticleHelp {
 
 	@Override
 	public String toSingleLine() {
-		return "minecraft:falling_dust <block>";
+		return "minecraft:falling_dust " + LogColor.LIGHT_PURPLE + "<block>";
 	}
 
 	@Override
