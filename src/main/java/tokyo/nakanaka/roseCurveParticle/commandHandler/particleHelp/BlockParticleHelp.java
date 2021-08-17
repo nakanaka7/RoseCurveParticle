@@ -9,7 +9,7 @@ public class BlockParticleHelp implements ParticleHelp {
 
 	@Override
 	public String toSingleLine() {
-		return "minecraft:block <block> [crack|dust]";
+		return "minecraft:block " + LogColor.LIGHT_PURPLE + "<block> [crack|dust]";
 	}
 
 	@Override

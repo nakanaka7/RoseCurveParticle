@@ -8,7 +8,7 @@ import java.util.List;
 public class DustParticleHelp implements ParticleHelp {
     @Override
     public String toSingleLine() {
-        return "minecraft:dust <red> <green> <blue> <size>";
+        return "minecraft:dust " + LogColor.LIGHT_PURPLE + "<red> <green> <blue> <size>";
     }
 
     @Override
