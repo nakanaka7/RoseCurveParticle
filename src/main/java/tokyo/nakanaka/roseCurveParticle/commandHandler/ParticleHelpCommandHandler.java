@@ -4,6 +4,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.BlockParticleHelp;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.DustParticleHelp;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.ParticleHelp;
 
@@ -15,6 +16,7 @@ public class ParticleHelpCommandHandler implements CommandHandler {
     private LinkedHashMap<NamespacedID, ParticleHelp> helpMap = new LinkedHashMap<>();
     public ParticleHelpCommandHandler() {
         this.helpMap.put(new NamespacedID("minecraft", "dust"), new DustParticleHelp());
+        this.helpMap.put(new NamespacedID("minecraft", "block"), new BlockParticleHelp());
     }
 
     @Override
