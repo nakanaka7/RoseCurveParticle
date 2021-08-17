@@ -26,7 +26,7 @@ public class Main {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
 		this.cmdHandlerMap.put("help", new HelpCommandHandler());
-		this.cmdHandlerMap.put("ptclhelp", new ParticleHelpCommandHandler());
+		this.cmdHandlerMap.put("ptclhelp", new PtclhelpCommandHandler());
 		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap, scheduler));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
