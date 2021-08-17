@@ -15,11 +15,14 @@ public class BlockParticleParseHandler implements SubParticleParseHandler {
 
 	@Override
 	public Particle onParse(String[] args) {
-		if(args.length != 2) {
+		if(args.length == 0 && 3 <= args.length) {
 			throw new IllegalArgumentException();
 		}
 		Block block = Block.valueOf(args[0]);
-		Type type = Type.valueOf(args[1].toUpperCase());
+		Type type = Type.DUST;
+		if(args.length == 2) {
+			type = Type.valueOf(args[1].toUpperCase());
+		}
 		return new BlockParticle(block, type);
 	}
 
