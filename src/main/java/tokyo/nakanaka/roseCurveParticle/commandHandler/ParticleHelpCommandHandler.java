@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 public class ParticleHelpCommandHandler implements CommandHandler {
     private LinkedHashMap<NamespacedID, ParticleHelp> helpMap = new LinkedHashMap<>();
     public ParticleHelpCommandHandler() {
-        this.helpMap.put(new NamespacedID("minecraft", "dust"), new DustParticleHelp());
         this.helpMap.put(new NamespacedID("minecraft", "block"), new BlockParticleHelp());
+        this.helpMap.put(new NamespacedID("minecraft", "dust"), new DustParticleHelp());
     }
 
     @Override
