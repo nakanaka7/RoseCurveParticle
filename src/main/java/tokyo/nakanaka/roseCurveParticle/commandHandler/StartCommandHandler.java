@@ -39,9 +39,13 @@ public class StartCommandHandler implements CommandHandler {
 	
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.taskMap.entrySet().stream()
+		if(args.length == 1) {
+			return this.taskMap.entrySet().stream()
 				.map(s -> s.getKey())
 				.collect(Collectors.toList());
+		}else {
+			return List.of();
+		}
 	}
 
 }
