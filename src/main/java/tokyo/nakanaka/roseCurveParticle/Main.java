@@ -35,13 +35,6 @@ public class Main {
 		this.cmdHandlerMap.put("stop", new StopCommandHandler(taskMap));
 	}
 	/**
-	 * @param mainDependency the main dependency to construct the main 
-	 */
-	public Main(MainDependency mainDependency) {
-		this(mainDependency.scheduler(), mainDependency.worldFinder());
-	}
-	
-	/**
 	 * Run a /rcp command
 	 * @param cmdSender command sender who run the command
 	 * @param args command arguments of the command
