@@ -8,10 +8,9 @@ import java.util.stream.Collectors;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleID;
-import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
-public class BukkitParticleParseHandler implements ParticleParseHandler {
+public class BukkitParticleParseHandler {
 private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>();
 	
 	public BukkitParticleParseHandler() {
@@ -22,7 +21,6 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust_color_transition"), new DustColorTransitionParticleHandler());
 	}
 	
-	@Override
 	public Particle onParse(String label, String[] args) {
 		if(!label.contains(":")) {
 			label = "minecraft:" + label;
@@ -34,7 +32,6 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 		return this.subParseMap.get(id).onParse(args);
 	}
 
-	@Override
 	public List<String> onTabComplete(String label, String[] args) {
 		if(args.length == 0) {
 			return List.of(ParticleID.values()).stream()
