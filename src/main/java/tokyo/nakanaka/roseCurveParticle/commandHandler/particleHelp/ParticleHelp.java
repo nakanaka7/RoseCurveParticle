@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.particleHelp;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp;
 
 import java.util.List;
 
