@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.math;
+package tokyo.nakanaka.roseCurveParticle;
 /**
  * Represents a rose curve, r = a * sin((n/d) * θ)
  */
