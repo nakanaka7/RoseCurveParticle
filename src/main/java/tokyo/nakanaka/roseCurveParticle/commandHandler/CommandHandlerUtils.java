@@ -26,9 +26,9 @@ public class CommandHandlerUtils {
 		lines.add(LogColor.LIGHT_PURPLE + "eq.1: " + LogColor.RESET + "r = " + LogColor.LIGHT_PURPLE + "a " 
 			+ LogColor.RESET + "* sin [(" + LogColor.LIGHT_PURPLE + "n " + LogColor.RESET + "/ " + LogColor.LIGHT_PURPLE + "d" 
 			+ LogColor.RESET + ") * θ]");
-		lines.add(LogColor.LIGHT_PURPLE + "eq.2: " + LogColor.RESET + "θ " + LogColor.RESET + "[degree] "
+		lines.add(LogColor.LIGHT_PURPLE + "eq.2: " + LogColor.RESET + "θ " + LogColor.LIGHT_PURPLE + "[degree] "
 			+ LogColor.RESET + "= " + LogColor.LIGHT_PURPLE + "k " 
-			+ LogColor.RESET + "* " + LogColor.LIGHT_PURPLE + "t " + LogColor.RESET + "[tick]");
+			+ LogColor.RESET + "* t " + LogColor.LIGHT_PURPLE + "[tick]");
 		{//a
 			String strValue = "";
 			Double value = task.getAFactor();
@@ -59,7 +59,8 @@ public class CommandHandlerUtils {
 			if(value != null) {
 				strValue = value.toString();
 			}
-			lines.add(LogColor.LIGHT_PURPLE + "  k = " + LogColor.RESET + strValue + " [degree / tick]");
+			lines.add(LogColor.LIGHT_PURPLE + "  k = " + LogColor.RESET + strValue + " " 
+			+ LogColor.LIGHT_PURPLE + "[degree / tick]");
 		}
 		lines.add("------------------------------------------");
 		{//particle
