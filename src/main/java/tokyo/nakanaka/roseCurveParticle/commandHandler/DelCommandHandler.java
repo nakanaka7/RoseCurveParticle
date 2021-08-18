@@ -40,8 +40,12 @@ public class DelCommandHandler implements CommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.taskMap.keySet().stream()
+		if(args.length == 1) {
+			return this.taskMap.keySet().stream()
 				.collect(Collectors.toList());
+		}else {
+			return List.of();
+		}
 	}
 
 }
