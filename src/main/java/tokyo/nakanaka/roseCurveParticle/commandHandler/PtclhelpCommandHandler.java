@@ -4,12 +4,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.BlockParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.DustColorTransitionParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.DustParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.FallingDustParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.ItemParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.ParticleHelp;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
