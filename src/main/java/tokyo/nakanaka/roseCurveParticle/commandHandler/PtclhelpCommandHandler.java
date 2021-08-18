@@ -27,6 +27,7 @@ public class PtclhelpCommandHandler implements CommandHandler {
             this.helpMap.entrySet().stream()
                     .map(s -> s.getValue().toSingleLine())
                     .forEach(s -> cmdSender.print(s));
+            cmdSender.print(LogColor.LIGHT_PURPLE + "Run \"/rcp ptclhelp <particle>\" for details");
         }else if(args.length == 1) {
             String k = args[0];
             if(!k.contains(":")){
