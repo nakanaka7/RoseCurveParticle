@@ -10,10 +10,10 @@ import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleID;
 import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
-public class BukkitParticleParseHandler {
+public class ParticleParseHandler {
 private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>();
 	
-	public BukkitParticleParseHandler() {
+	public ParticleParseHandler() {
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:block"), new BlockParticleParseHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:falling_dust"), new FallingDustParticleParseHandler());
