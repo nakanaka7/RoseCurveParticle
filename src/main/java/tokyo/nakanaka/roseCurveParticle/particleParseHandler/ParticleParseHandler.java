@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleID;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class ParticleParseHandler {
 private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>();

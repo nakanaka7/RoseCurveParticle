@@ -4,7 +4,6 @@ import java.util.List;
 
 import tokyo.nakanaka.particle.DustColorTransitionParticle;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class DustColorTransitionParticleHandler implements SubParticleParseHandler {
 

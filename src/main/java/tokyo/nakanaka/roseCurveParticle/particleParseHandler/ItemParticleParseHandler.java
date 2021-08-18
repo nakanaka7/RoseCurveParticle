@@ -9,7 +9,6 @@ import tokyo.nakanaka.Item;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.particle.ItemParticle;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class ItemParticleParseHandler implements SubParticleParseHandler {
 

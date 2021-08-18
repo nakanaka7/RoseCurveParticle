@@ -9,7 +9,6 @@ import tokyo.nakanaka.block.Block;
 import tokyo.nakanaka.particle.BlockParticle;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.BlockParticle.Type;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class BlockParticleParseHandler implements SubParticleParseHandler {
 
