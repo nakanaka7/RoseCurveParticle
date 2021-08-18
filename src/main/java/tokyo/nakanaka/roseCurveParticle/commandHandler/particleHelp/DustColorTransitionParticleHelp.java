@@ -15,7 +15,7 @@ public class DustColorTransitionParticleHelp implements ParticleHelp {
 	@Override
 	public List<String> toMultipleLines() {
 		List<String> line = new ArrayList<>();
-		line.add("--- [" + LogColor.LIGHT_PURPLE + "Help for " + LogColor.RESET + "\"minecraft:dust\" particle] ---------------------");
+		line.add("--- [" + LogColor.LIGHT_PURPLE + "Help for " + LogColor.RESET + "\"minecraft:dust\"] ---------------------");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "\"minecraft:dust\" " + LogColor.LIGHT_PURPLE + "<red> <green> <blue> <size>");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
 		line.add("  " + LogColor.LIGHT_PURPLE + "<fromRed>: " + LogColor.RESET + "the initial red component of the color (0 ~ 1)");
