@@ -66,7 +66,7 @@ public class CommandHandlerUtils {
 			String strParticle = "";
 			Particle particle = task.getParticle();
 			if(particle != null) {
-				strParticle = particle.getId().toString();
+				strParticle = particle.toString();
 			}
 			lines.add(LogColor.LIGHT_PURPLE + "Particle: " + LogColor.RESET + strParticle);
 		}

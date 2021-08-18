@@ -25,7 +25,8 @@ public class StopCommandHandler implements CommandHandler {
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
 		if(args.length != 1) {
-			cmdSender.print(LogColor.RED + "Usage: " + RcpCommandHelps.START_HELP.getUsage());
+			cmdSender.print(LogColor.RED + "Usage: " + RcpCommandHelps.STOP_HELP.getUsage());
+			return;
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
@@ -38,9 +39,13 @@ public class StopCommandHandler implements CommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.taskMap.entrySet().stream()
-			.map(s -> s.getKey())
-			.collect(Collectors.toList());
+		if(args.length == 1) {
+			return this.taskMap.entrySet().stream()
+					.map(s -> s.getKey())
+					.collect(Collectors.toList());
+		}else{
+			return List.of();
+		}
 	}
 
 }
