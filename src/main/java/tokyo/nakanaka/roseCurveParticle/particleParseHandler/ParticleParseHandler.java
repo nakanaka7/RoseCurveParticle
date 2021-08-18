@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler;
+package tokyo.nakanaka.roseCurveParticle.particleParseHandler;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,13 +8,11 @@ import java.util.stream.Collectors;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.particle.ParticleID;
-import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
-public class BukkitParticleParseHandler implements ParticleParseHandler {
+public class ParticleParseHandler {
 private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>();
 	
-	public BukkitParticleParseHandler() {
+	public ParticleParseHandler() {
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust"), new DustParticleHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:block"), new BlockParticleParseHandler());
 		subParseMap.put(NamespacedID.valueOf("minecraft:falling_dust"), new FallingDustParticleParseHandler());
@@ -22,7 +20,6 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 		subParseMap.put(NamespacedID.valueOf("minecraft:dust_color_transition"), new DustColorTransitionParticleHandler());
 	}
 	
-	@Override
 	public Particle onParse(String label, String[] args) {
 		if(!label.contains(":")) {
 			label = "minecraft:" + label;
@@ -34,7 +31,6 @@ private Map<NamespacedID, SubParticleParseHandler> subParseMap = new HashMap<>()
 		return this.subParseMap.get(id).onParse(args);
 	}
 
-	@Override
 	public List<String> onTabComplete(String label, String[] args) {
 		if(args.length == 0) {
 			return List.of(ParticleID.values()).stream()

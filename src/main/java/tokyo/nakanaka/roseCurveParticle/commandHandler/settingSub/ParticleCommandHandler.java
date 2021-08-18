@@ -5,17 +5,13 @@ import java.util.List;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
+import tokyo.nakanaka.roseCurveParticle.particleParseHandler.ParticleParseHandler;
 
 public class ParticleCommandHandler implements SettingSubCommandHandler {
-	private ParticleParseHandler particleParser;
+	private ParticleParseHandler particleParser = new ParticleParseHandler();
 	
-	public ParticleCommandHandler(ParticleParseHandler particleParser) {
-		this.particleParser = particleParser;
-	}
-
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task) {
 		if(args.length == 0) {

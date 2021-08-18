@@ -1,9 +1,8 @@
-package tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler;
+package tokyo.nakanaka.roseCurveParticle.particleParseHandler;
 
 import java.util.List;
 
 import tokyo.nakanaka.particle.DustParticle;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class DustParticleHandler implements SubParticleParseHandler {
 	

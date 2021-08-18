@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler;
+package tokyo.nakanaka.roseCurveParticle.particleParseHandler;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +8,6 @@ import org.bukkit.Material;
 import tokyo.nakanaka.block.Block;
 import tokyo.nakanaka.particle.FallingDustParticle;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.SubParticleParseHandler;
 
 public class FallingDustParticleParseHandler implements SubParticleParseHandler {
 

@@ -5,18 +5,26 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import tokyo.nakanaka.Scheduler;
+import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.bukkit.BukkitFunctions;
 import tokyo.nakanaka.bukkit.BukkitScheduler;
 import tokyo.nakanaka.bukkit.BukkitWorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurveParticle.Main;
-import tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler.BukkitParticleParseHandler;
 
 /**
  * An entry point of this plugin
  */
 public class RoseCurveParticlePlugin extends JavaPlugin {
-	private Main main = new Main(new BukkitScheduler(this), new BukkitParticleParseHandler(), new BukkitWorldFinder(this.getServer()));
+	private Main main;
+	
+	@Override
+	public void onLoad() {
+		Scheduler scheduler = new BukkitScheduler(this);
+		WorldFinder worldFinder = new BukkitWorldFinder(this.getServer());
+		this.main = new Main(scheduler, worldFinder);
+	}
 	
 	@Override
 	public boolean onCommand(org.bukkit.command.CommandSender cmdSender0, Command command, String label, String[] args) {
