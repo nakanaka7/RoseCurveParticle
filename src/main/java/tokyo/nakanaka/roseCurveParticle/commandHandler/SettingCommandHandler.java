@@ -10,15 +10,7 @@ import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.ACommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.AxisCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.CenterCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.DCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.KCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.NCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.ParticleCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.SettingSubCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.WorldCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.*;
 
 public class SettingCommandHandler implements CommandHandler {
 	private Map<String, SettingSubCommandHandler> subCmdMap = new HashMap<>();
