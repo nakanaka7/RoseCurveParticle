@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.particleParseHandler;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.particleParseHandler;
 
 import java.util.List;
 

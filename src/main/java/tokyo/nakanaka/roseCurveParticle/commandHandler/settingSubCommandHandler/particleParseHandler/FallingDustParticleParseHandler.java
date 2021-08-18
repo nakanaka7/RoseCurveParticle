@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.particleParseHandler;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.particleParseHandler;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,11 +6,10 @@ import java.util.stream.Collectors;
 import org.bukkit.Material;
 
 import tokyo.nakanaka.block.Block;
-import tokyo.nakanaka.particle.BlockParticle;
+import tokyo.nakanaka.particle.FallingDustParticle;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.particle.BlockParticle.Type;
 
-public class BlockParticleParseHandler implements SubParticleParseHandler {
+public class FallingDustParticleParseHandler implements SubParticleParseHandler {
 
 	@Override
 	public Particle onParse(String[] args) {
@@ -18,12 +17,14 @@ public class BlockParticleParseHandler implements SubParticleParseHandler {
 			throw new IllegalArgumentException();
 		}
 		Block block = Block.valueOf(args[0]);
-		return new BlockParticle(block, Type.DUST);
+		return new FallingDustParticle(block);
 	}
 
 	@Override
 	public List<String> onTabComplete(String[] args) {
-		if(args.length == 1) {
+		if(args.length == 0) {
+			return List.of();
+		}else if(args.length == 1) {
 			return List.of(Material.values()).stream()
 				.filter(s -> s.isBlock())
 				.map(s -> "minecraft:" + s.toString().toLowerCase())
@@ -32,5 +33,5 @@ public class BlockParticleParseHandler implements SubParticleParseHandler {
 			return List.of();
 		}
 	}
-	
+
 }
