@@ -11,7 +11,7 @@ import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp.RcpCommandHelps;
 /**
  * Handles "/rcp create" command.
  */

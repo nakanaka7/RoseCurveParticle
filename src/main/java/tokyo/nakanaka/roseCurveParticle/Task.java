@@ -8,7 +8,6 @@ import tokyo.nakanaka.logger.Logger;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.DisplayMode;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
 /**
  * Represents a task which draws a particle rose line in a world
