@@ -1,38 +1,32 @@
-/**
- * 
- */
-package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler;
 
 import java.util.List;
 
+import tokyo.nakanaka.Axis;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 /**
- * Handles "n" sub command of "/rcp setting &lt;taskName&gt;" command
+ * Handles "axis" sub command of "/rcp setting &lt;taskName&gt;" command
  */
-public class NCommandHandler implements SettingSubCommandHandler {
+public class AxisCommandHandler implements SettingSubCommandHandler {
 
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task) {
 		if(args.length != 1) {
-			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> n <positive int>");
+			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> axis x|y|z");
 			return;
 		}
-		int value;
+		Axis value;
 		try{
-			value = Integer.parseInt(args[0]);
+			value = Axis.valueOf(args[0].toUpperCase());
 		}catch(IllegalArgumentException e) {
-			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to int");
+			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to axis");
 			return;
 		}
-		if(value <= 0) {
-			cmdSender.print(LogColor.RED + "\"n\" value must be positive (input: n = " + value + ")");
-			return;
-		}
-		task.setNFactor(value);
+		task.setAxis(value);
 		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}
@@ -40,7 +34,7 @@ public class NCommandHandler implements SettingSubCommandHandler {
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
 		if(args.length == 1) {
-			return List.of("1", "2", "3", "4", "5", "6", "7", "8", "9");
+			return List.of("x", "y", "z");
 		}else {
 			return List.of();
 		}

@@ -1,4 +1,7 @@
-package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub;
+/**
+ * 
+ */
+package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler;
 
 import java.util.List;
 
@@ -8,14 +11,14 @@ import tokyo.nakanaka.roseCurveParticle.Task;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 /**
- * Handles "d" sub command of "/rcp setting &lt;taskName&gt;" command
+ * Handles "n" sub command of "/rcp setting &lt;taskName&gt;" command
  */
-public class DCommandHandler implements SettingSubCommandHandler {
-	
+public class NCommandHandler implements SettingSubCommandHandler {
+
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args, String taskName, Task task) {
 		if(args.length != 1) {
-			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> d <positive int>");
+			cmdSender.print(LogColor.RED + "Usage: /rcp setting <taskName> n <positive int>");
 			return;
 		}
 		int value;
@@ -26,10 +29,10 @@ public class DCommandHandler implements SettingSubCommandHandler {
 			return;
 		}
 		if(value <= 0) {
-			cmdSender.print(LogColor.RED + "\"d\" value must be positive (input: d = " + value + ")");
+			cmdSender.print(LogColor.RED + "\"n\" value must be positive (input: n = " + value + ")");
 			return;
 		}
-		task.setDFactor(value);
+		task.setNFactor(value);
 		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));
 	}

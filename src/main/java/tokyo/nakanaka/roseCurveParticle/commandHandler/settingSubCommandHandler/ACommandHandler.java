@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler;
 
 import java.util.List;
 
