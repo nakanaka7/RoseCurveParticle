@@ -1,4 +1,4 @@
-package tokyo.nakanaka.roseCurveParticle.commandHelp;
+package tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp;
 
 public class RcpCommandHelps {
 	/**

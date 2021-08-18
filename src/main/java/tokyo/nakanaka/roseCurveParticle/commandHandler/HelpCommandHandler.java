@@ -7,8 +7,8 @@ import java.util.List;
 import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.roseCurveParticle.commandHelp.CommandHelp;
-import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp.CommandHelp;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp.RcpCommandHelps;
 /**
  * Handles "/rcp help" command
  */
