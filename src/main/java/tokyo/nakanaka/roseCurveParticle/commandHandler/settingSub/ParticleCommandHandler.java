@@ -7,10 +7,14 @@ import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.particle.Particle;
 import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.Task;
+import tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler.BukkitParticleParseHandler;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.CommandHandlerUtils;
 
 public class ParticleCommandHandler implements SettingSubCommandHandler {
-	private ParticleParseHandler particleParser;
+	private ParticleParseHandler particleParser = new BukkitParticleParseHandler();
+	
+	public ParticleCommandHandler() {
+	}
 	
 	public ParticleCommandHandler(ParticleParseHandler particleParser) {
 		this.particleParser = particleParser;
