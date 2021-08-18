@@ -22,7 +22,7 @@ public class Main {
 	 * @param particleParser a particle parser for the platform that uses the main
 	 * @param worldFinder a world finder for the platform that uses the main
 	 */
-	public Main(Scheduler scheduler, ParticleParseHandler particleParseHandler, WorldFinder worldFinder) {
+	public Main(Scheduler scheduler, WorldFinder worldFinder) {
 		this.cmdHandlerMap = new HashMap<>();
 		Map<String, Task> taskMap = new HashMap<>();
 		this.cmdHandlerMap.put("help", new HelpCommandHandler());
@@ -30,7 +30,7 @@ public class Main {
 		this.cmdHandlerMap.put("create", new CreateCommandHandler(taskMap, scheduler));
 		this.cmdHandlerMap.put("del", new DelCommandHandler(taskMap));
 		this.cmdHandlerMap.put("list", new ListCommandHandler(taskMap));
-		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap, particleParseHandler, worldFinder));
+		this.cmdHandlerMap.put("setting", new SettingCommandHandler(taskMap, worldFinder));
 		this.cmdHandlerMap.put("start", new StartCommandHandler(taskMap));
 		this.cmdHandlerMap.put("stop", new StopCommandHandler(taskMap));
 	}
@@ -38,7 +38,7 @@ public class Main {
 	 * @param mainDependency the main dependency to construct the main 
 	 */
 	public Main(MainDependency mainDependency) {
-		this(mainDependency.scheduler(), mainDependency.particleParseHandler(), mainDependency.worldFinder());
+		this(mainDependency.scheduler(), mainDependency.worldFinder());
 	}
 	
 	/**
