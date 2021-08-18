@@ -24,7 +24,7 @@ class CreateCommandHelp implements CommandHelp {
 		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "Create new task");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "/rcp create " + LogColor.LIGHT_PURPLE + "<taskName>");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
-		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "task name of new task");
+		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "the name of new task");
 		return line;
 	}
 

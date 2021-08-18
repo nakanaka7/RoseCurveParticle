@@ -14,14 +14,14 @@ class ListCommandHelp implements CommandHelp {
 
 	@Override
 	public String toSingleLine() {
-		return LogColor.LIGHT_PURPLE + "/rcp list" + ": " + LogColor.RESET + "List the tasks";
+		return LogColor.LIGHT_PURPLE + "/rcp list" + ": " + LogColor.RESET + "List all the tasks";
 	}
 
 	@Override
 	public List<String> toMultipleLines() {
 		List<String> line = new ArrayList<>();
 		line.add("--- [" + LogColor.LIGHT_PURPLE + "Help for " + LogColor.RESET + "/rcp list] ---------------------");
-		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "List the tasks");
+		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "List all the tasks");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "/rcp list");
 		return line;
 	}
