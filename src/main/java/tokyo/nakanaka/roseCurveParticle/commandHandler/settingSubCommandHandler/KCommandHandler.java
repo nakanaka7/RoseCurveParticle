@@ -35,7 +35,7 @@ public class KCommandHandler implements SettingSubCommandHandler {
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
 		if(args.length == 1) {
-			return List.of("1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0");
+			return List.of("90", "180", "270", "360", "-90", "-180", "-270", "-360");
 		}else {
 			return List.of();
 		}
