@@ -12,9 +12,6 @@ import tokyo.nakanaka.bukkit.BukkitScheduler;
 import tokyo.nakanaka.bukkit.BukkitWorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.roseCurveParticle.Main;
-import tokyo.nakanaka.roseCurveParticle.MainDependency;
-import tokyo.nakanaka.roseCurveParticle.ParticleParseHandler;
-import tokyo.nakanaka.roseCurveParticle.bukkit.particleParseHandler.BukkitParticleParseHandler;
 
 /**
  * An entry point of this plugin
@@ -25,10 +22,8 @@ public class RoseCurveParticlePlugin extends JavaPlugin {
 	@Override
 	public void onLoad() {
 		Scheduler scheduler = new BukkitScheduler(this);
-		ParticleParseHandler ptclParseHandler = new BukkitParticleParseHandler();
 		WorldFinder worldFinder = new BukkitWorldFinder(this.getServer());
-		MainDependency mainDependency = new MainDependency(scheduler, ptclParseHandler, worldFinder);
-		this.main = new Main(mainDependency);
+		this.main = new Main(scheduler, worldFinder);
 	}
 	
 	@Override
