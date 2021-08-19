@@ -15,7 +15,7 @@ public class ItemParticleHelp implements ParticleHelp {
 	@Override
 	public List<String> toMultipleLines() {
 		List<String> line = new ArrayList<>();
-		line.add("--- [" + LogColor.LIGHT_PURPLE + "Help for " + LogColor.RESET + "\"minecraft:item\" particle] ---------------------");
+		line.add("--- [" + LogColor.LIGHT_PURPLE + "Help for " + LogColor.RESET + "\"minecraft:item\"] ---------------------");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "\"minecraft:item\" " + LogColor.LIGHT_PURPLE + "<item>");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
 		line.add("  " + LogColor.LIGHT_PURPLE + "<item>: " + LogColor.RESET + "item");

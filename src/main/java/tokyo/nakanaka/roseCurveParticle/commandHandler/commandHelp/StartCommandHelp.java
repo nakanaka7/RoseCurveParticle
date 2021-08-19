@@ -27,7 +27,7 @@ class StartCommandHelp implements CommandHelp {
 		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "Start or resume a task");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "/rcp start " + LogColor.LIGHT_PURPLE + "<taskName>");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
-		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "a task name to start");
+		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "the name of a task to start");
 		return line;
 	}
 

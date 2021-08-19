@@ -28,7 +28,7 @@ class StopCommandHelp implements CommandHelp {
 		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "Stop a task");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "/rcp stop " + LogColor.LIGHT_PURPLE + "<taskName>");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
-		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "a task name to stop");
+		line.add("  " + LogColor.LIGHT_PURPLE + "<taskName>: " + LogColor.RESET + "the name of a task to stop");
 		return line;
 	}
 

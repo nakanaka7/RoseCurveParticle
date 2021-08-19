@@ -24,7 +24,7 @@ class HelpCommandHelp implements CommandHelp {
 		line.add(LogColor.LIGHT_PURPLE + "Description: " + LogColor.RESET + "Print the help");
 		line.add(LogColor.LIGHT_PURPLE + "Usage: " + LogColor.RESET + "/rcp help " + LogColor.LIGHT_PURPLE + "[subcommand]");
 		line.add(LogColor.LIGHT_PURPLE + "Parameters: ");
-		line.add("  " + LogColor.LIGHT_PURPLE + "[subcommand]: " + LogColor.RESET + "subcommand to print the help");
+		line.add("  " + LogColor.LIGHT_PURPLE + "[subcommand]: " + LogColor.RESET + "a sub command to print the help");
 		return line;
 	}
 	

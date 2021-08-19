@@ -36,8 +36,7 @@ public class HelpCommandHandler implements CommandHandler {
 			cmdSender.print("--- [" + LogColor.LIGHT_PURPLE + "Quick help for " + LogColor.RESET + "/rcp] ---------------------");
 			this.cmdHelpMap.values().stream()
 				.forEach(s -> cmdSender.print(s.toSingleLine()));
-			cmdSender.print(LogColor.LIGHT_PURPLE + "Run " + LogColor.RESET + "\"" + helpCmdUsage + "\" " 
-				+ LogColor.RESET + LogColor.LIGHT_PURPLE + "for details");
+			cmdSender.print(LogColor.LIGHT_PURPLE + "Run \"/rcp help <subcommand>\" for details");
 		}else if(args.length == 1) {
 			CommandHelp cmdHelp = this.cmdHelpMap.get(args[0]);
 			if(cmdHelp == null) {
