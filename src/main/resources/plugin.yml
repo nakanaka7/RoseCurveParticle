@@ -3,4 +3,4 @@ name: RoseCurveParticle
 version: 1.0.0
 commands:
   'rcp':
-api-version: 1.16
+api-version: 1.17
