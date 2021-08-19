@@ -53,7 +53,7 @@ public class Main {
 		if(cmdHandler != null) {
 			cmdHandler.onCommand(cmdSender, subArgs);
 		}else {
-			cmdSender.print(LogColor.RED + "Unknown sub command. Run \"/rcp help\" for help.");
+			cmdSender.print(LogColor.RED + "Unknown subcommand. Run \"/rcp help\" for help.");
 		}
 	}
 	/**
