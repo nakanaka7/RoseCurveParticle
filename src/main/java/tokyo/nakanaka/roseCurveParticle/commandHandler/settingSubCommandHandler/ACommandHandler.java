@@ -24,6 +24,10 @@ public class ACommandHandler implements SettingSubCommandHandler {
 			cmdSender.print(LogColor.RED + "Can not convert \"" + args[0] + "\" to double");
 			return;
 		}
+		if(value <= 0) {
+			cmdSender.print(LogColor.RED + "\"a\" value must be positive (input: a = " + value + ")");
+			return;
+		}
 		task.setAFactor(value);
 		CommandHandlerUtils.createSettingLines(taskName, task).stream()
 			.forEach(s -> cmdSender.print(s));

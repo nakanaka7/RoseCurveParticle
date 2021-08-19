@@ -108,8 +108,12 @@ public class Task {
 	/**
 	 * Set A factor of the rose curve
 	 * @param a a factor of the rose curve
+	 * @throws IllegalArgumentException if a <= 0
 	 */
 	public void setAFactor(double a) {
+		if(a <= 0) {
+			throw new IllegalArgumentException();
+		}
 		this.a = a;
 	}
 	/**
