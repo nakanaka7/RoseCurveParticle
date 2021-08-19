@@ -10,6 +10,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.Scheduler;
 import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
+import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.commandHandler.*;
 
 /**
@@ -41,6 +42,8 @@ public class Main {
 	 */
 	public void onRcpCommand(CommandSender cmdSender, String[] args) {
 		if(args.length == 0) {
+			cmdSender.print(LogColor.RED + "Usage: /rcp <subcommand>");
+			cmdSender.print(LogColor.RED + "Run \"/rcp help\" for help.");
 			return;
 		}
 		String subLabel = args[0];
@@ -49,6 +52,8 @@ public class Main {
 		CommandHandler cmdHandler = this.cmdHandlerMap.get(subLabel);
 		if(cmdHandler != null) {
 			cmdHandler.onCommand(cmdSender, subArgs);
+		}else {
+			cmdSender.print(LogColor.RED + "Unknown subcommand. Run \"/rcp help\" for help.");
 		}
 	}
 	/**

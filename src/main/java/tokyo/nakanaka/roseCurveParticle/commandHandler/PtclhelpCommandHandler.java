@@ -37,11 +37,14 @@ public class PtclhelpCommandHandler implements CommandHandler {
             try{
                 id = NamespacedID.valueOf(k);
             }catch(IllegalArgumentException e){
+            	cmdSender.print(LogColor.RED + "Cannot convert \"" + args[0] + "\" to a namespacedID");
                 return;
             }
             if(this.helpMap.containsKey(id)){
                 this.helpMap.get(id).toMultipleLines().stream()
                         .forEach(s -> cmdSender.print(s));
+            }else {
+            	cmdSender.print(LogColor.RED + "No help for \"" + args[0] + "\" particle");
             }
         }
     }
