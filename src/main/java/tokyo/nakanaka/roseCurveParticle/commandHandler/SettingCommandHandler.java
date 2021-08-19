@@ -51,7 +51,7 @@ public class SettingCommandHandler implements CommandHandler {
 				System.arraycopy(args, 2, subargs, 0, args.length - 2);
 				subCmdHandler.onCommand(cmdSender, subargs, args[0], task);
 			}else {
-				cmdSender.print(LogColor.RED + "unknown subcommand");
+				cmdSender.print(LogColor.RED + "Unknown subcommand");
 				return;
 			}
 		}
