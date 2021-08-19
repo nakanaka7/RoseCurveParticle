@@ -8,7 +8,6 @@ import tokyo.nakanaka.logger.Logger;
 import tokyo.nakanaka.math.Vector3D;
 import tokyo.nakanaka.particle.DisplayMode;
 import tokyo.nakanaka.particle.Particle;
-import tokyo.nakanaka.roseCurveParticle.math.RoseCurve;
 
 /**
  * Represents a task which draws a particle rose line in a world
@@ -109,8 +108,12 @@ public class Task {
 	/**
 	 * Set A factor of the rose curve
 	 * @param a a factor of the rose curve
+	 * @throws IllegalArgumentException if a <= 0
 	 */
 	public void setAFactor(double a) {
+		if(a <= 0) {
+			throw new IllegalArgumentException();
+		}
 		this.a = a;
 	}
 	/**

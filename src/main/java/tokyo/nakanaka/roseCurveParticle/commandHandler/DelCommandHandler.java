@@ -8,7 +8,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHelp.RcpCommandHelps;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp.RcpCommandHelps;
 /**
  * Handles "/rcp del" command.
  */
@@ -30,7 +30,7 @@ public class DelCommandHandler implements CommandHandler {
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
-			cmdSender.print(LogColor.RED + "No task which name is \"" + args[0] + "\"");
+			cmdSender.print(LogColor.RED + "No such task, \"" + args[0] + "\"");
 			return;
 		}
 		task.stop();
@@ -40,8 +40,12 @@ public class DelCommandHandler implements CommandHandler {
 
 	@Override
 	public List<String> onTabComplete(CommandSender cmdSender, String[] args) {
-		return this.taskMap.keySet().stream()
+		if(args.length == 1) {
+			return this.taskMap.keySet().stream()
 				.collect(Collectors.toList());
+		}else {
+			return List.of();
+		}
 	}
 
 }

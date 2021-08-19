@@ -10,15 +10,8 @@ import tokyo.nakanaka.WorldFinder;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
 import tokyo.nakanaka.roseCurveParticle.Task;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ACommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.AxisCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.CenterCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.DCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.KCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.NCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.ParticleCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.SettingSubCommandHandler;
-import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSub.WorldCommandHandler;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.commandHelp.RcpCommandHelps;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.settingSubCommandHandler.*;
 
 public class SettingCommandHandler implements CommandHandler {
 	private Map<String, SettingSubCommandHandler> subCmdMap = new HashMap<>();
@@ -39,15 +32,13 @@ public class SettingCommandHandler implements CommandHandler {
 	}
 	@Override
 	public void onCommand(CommandSender cmdSender, String[] args) {
-		String usageMsg = LogColor.RED + "Usage: /rcp setting <taskName> [subcommand]";
-		String noTaskMsg = LogColor.RED + "No task";
 		if(args.length == 0) {
-			cmdSender.print(usageMsg);
+			cmdSender.print(LogColor.RED + RcpCommandHelps.SETTING_HELP.getUsage());
 			return;
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
-			cmdSender.print(noTaskMsg);
+			cmdSender.print(LogColor.RED + "No such task, \"" + args[0] + "\"");
 			return;
 		}
 		if(args.length == 1) {
@@ -60,7 +51,7 @@ public class SettingCommandHandler implements CommandHandler {
 				System.arraycopy(args, 2, subargs, 0, args.length - 2);
 				subCmdHandler.onCommand(cmdSender, subargs, args[0], task);
 			}else {
-				cmdSender.print(LogColor.RED + "unknown subcommand");
+				cmdSender.print(LogColor.RED + "Unknown subcommand");
 				return;
 			}
 		}

@@ -4,12 +4,7 @@ import tokyo.nakanaka.CommandHandler;
 import tokyo.nakanaka.NamespacedID;
 import tokyo.nakanaka.commandSender.CommandSender;
 import tokyo.nakanaka.logger.LogColor;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.BlockParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.DustColorTransitionParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.DustParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.FallingDustParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.ItemParticleHelp;
-import tokyo.nakanaka.roseCurveParticle.particleHelp.ParticleHelp;
+import tokyo.nakanaka.roseCurveParticle.commandHandler.particleHelp.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -32,6 +27,7 @@ public class PtclhelpCommandHandler implements CommandHandler {
             this.helpMap.entrySet().stream()
                     .map(s -> s.getValue().toSingleLine())
                     .forEach(s -> cmdSender.print(s));
+            cmdSender.print(LogColor.LIGHT_PURPLE + "Run \"/rcp ptclhelp <particle>\" for details");
         }else if(args.length == 1) {
             String k = args[0];
             if(!k.contains(":")){
@@ -41,11 +37,14 @@ public class PtclhelpCommandHandler implements CommandHandler {
             try{
                 id = NamespacedID.valueOf(k);
             }catch(IllegalArgumentException e){
+            	cmdSender.print(LogColor.RED + "Cannot convert \"" + args[0] + "\" to a namespacedID");
                 return;
             }
             if(this.helpMap.containsKey(id)){
                 this.helpMap.get(id).toMultipleLines().stream()
                         .forEach(s -> cmdSender.print(s));
+            }else {
+            	cmdSender.print(LogColor.RED + "No help for \"" + args[0] + "\" particle");
             }
         }
     }
