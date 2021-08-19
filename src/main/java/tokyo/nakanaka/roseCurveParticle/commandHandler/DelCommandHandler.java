@@ -30,7 +30,7 @@ public class DelCommandHandler implements CommandHandler {
 		}
 		Task task = this.taskMap.get(args[0]);
 		if(task == null) {
-			cmdSender.print(LogColor.RED + "No task which name is \"" + args[0] + "\"");
+			cmdSender.print(LogColor.RED + "No such task, \"" + args[0] + "\"");
 			return;
 		}
 		task.stop();
